@@ -1,1 +1,8 @@
-*.local*
+*local*
+GIMP
+libreoffice
+obs-studio
+pulse
+discord
+godot
+mimeapps.list
