@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       ./local-configuration.nix
     ];
 
@@ -21,12 +21,11 @@
   };
 
   networking = {
-    hostName = "yoshi";
     networkmanager.enable = true;
 
     # Open ports in the firewall.
-    firewall.allowedTCPPorts = [ ];
-    firewall.allowedUDPPorts = [ ];
+    firewall.allowedTCPPorts = [ 22 8888 ];
+    firewall.allowedUDPPorts = [ 22 8888 ];
 
     #proxy.default = "http://user:password@proxy:port/";
     #proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -47,9 +46,14 @@
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      permitRootLogin = "no";
+      #challengeResponseAuthentication = false;
+      #passwordAuthentication = false;
+    };
     printing.enable = true;
-    printing.drivers = [ pkgs.gutenprint  ];
+    printing.drivers = [ pkgs.gutenprint ];
   };
 
   programs = {
@@ -57,9 +61,13 @@
     light.enable = true;
     sway.enable = true;
     zsh.enable = true;
-    zsh.histFile = "$XDG_DATA_HOME";
+    zsh.histFile = "\$HOME/.local/share/zsh/history";
     zsh.ohMyZsh.enable = true;
-    zsh.shellInit = "echo woah";
+    zsh.ohMyZsh.theme = "agnoster";
+    zsh.promptInit = ''
+      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
+      export ZDOTDIR="/home/josephtheengineer/.config/zsh"
+    '';
     zsh.syntaxHighlighting.enable = true;
     
   };
@@ -217,6 +225,10 @@
     file
     acpi
     groff
+    tectonic
+    zathura
+    cmatrix
+    pandoc
   ];
 
   # Determines the NixOS release with which your system is to be compatible.

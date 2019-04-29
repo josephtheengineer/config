@@ -128,16 +128,16 @@ default_border normal 1
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 exec killall conky; exec ~/scripts/workspace-manager.sh switch 1
-    bindsym $mod+2 exec killall conky; exec ~/scripts/workspace-manager.sh switch 2 
-    bindsym $mod+3 exec killall conky; exec ~/scripts/workspace-manager.sh switch 3
-    bindsym $mod+4 exec killall conky; exec ~/scripts/workspace-manager.sh switch 4
-    bindsym $mod+5 exec killall conky; exec ~/scripts/workspace-manager.sh switch 5
-    bindsym $mod+6 exec killall conky; exec ~/scripts/workspace-manager.sh switch 6 
-    bindsym $mod+7 exec killall conky; exec ~/scripts/workspace-manager.sh switch 7
-    bindsym $mod+8 exec killall conky; exec ~/scripts/workspace-manager.sh switch 8
-    bindsym $mod+9 exec killall conky; exec ~/scripts/workspace-manager.sh switch 9
-    bindsym $mod+0 exec killall conky; exec ~/scripts/workspace-manager.sh switch 10
+    bindsym $mod+1 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 1
+    bindsym $mod+2 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 2 
+    bindsym $mod+3 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 3
+    bindsym $mod+4 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 4
+    bindsym $mod+5 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 5
+    bindsym $mod+6 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 6 
+    bindsym $mod+7 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 7
+    bindsym $mod+8 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 8
+    bindsym $mod+9 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 9
+    bindsym $mod+0 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 10
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -178,8 +178,8 @@ default_border normal 1
     bindsym $mod+a focus parent
 
 	# gaps
-  bindsym $mod+bracketleft exec killall conky; exec ./scripts/workspace-manager.sh set-mode left
-  bindsym $mod+bracketright exec killall conky; exec ./scripts/workspace-manager.sh set-mode right
+  bindsym $mod+bracketleft exec killall conky; exec ./.config/scripts/workspace-manager.sh set-mode left
+  bindsym $mod+bracketright exec killall conky; exec ./.config/scripts/workspace-manager.sh set-mode right
 
 #
 # Scratchpad:

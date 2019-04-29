@@ -1,2 +1,2 @@
 rofi.fullscreen: true
-rofi.theme: ~/.config/rofi.rasi
+rofi.theme: ~/.config/rofi/rofi.rasi

@@ -15,7 +15,9 @@ export PATH=$PATH:~/scripts
 export MPD_HOST=/run/mpd/socket
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/josephtheengineer/.config/oh-my-zsh"
+export ZSH="/home/josephtheengineer/.config/oh-my-zsh"
+
+compinit -d "/home/josephtheengineer/.local/share/zsh/zcompdump"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
@@ -23,8 +25,8 @@ ZSH_THEME="agnoster"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="dd-mm-yyyy"
-HISTFILE=~/.zsh-history
+#HIST_STAMPS="dd-mm-yyyy"
+#HISTFILE=~/.zsh-history
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
