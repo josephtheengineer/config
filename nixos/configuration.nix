@@ -229,6 +229,7 @@
     zathura
     cmatrix
     pandoc
+    minecraft
   ];
 
   # Determines the NixOS release with which your system is to be compatible.
