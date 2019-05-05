@@ -1,0 +1,9 @@
+figlet -d ~/scripts/figlet-fonts -f "swampland.flf" swampland
+figlet -d ~/scripts/figlet-fonts -f Bloody.flf Bloody
+figlet -d ~/scripts/figlet-fonts -f Big.flf Big
+figlet -d ~/scripts/figlet-fonts -f "Isometric1.flf" Isometric1
+figlet -d ~/scripts/figlet-fonts -f "Poison.flf" Poison
+figlet -d ~/scripts/figlet-fonts -f "Sub-Zero.flf" Sub-Zero
+figlet -d ~/scripts/figlet-fonts -f "future.flf" future
+figlet -d ~/scripts/figlet-fonts -f 3d.flf 3d
+figlet -d ~/scripts/figlet-fonts -f "rusto.flf" rusto
