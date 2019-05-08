@@ -3,7 +3,10 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-
+with pkgs;
+let
+  R-packages = rWrapper.override{ packages = with rPackages; [ rmarkdown ]; };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -230,6 +233,7 @@
     cmatrix
     pandoc
     minecraft
+    R-packages
   ];
 
   # Determines the NixOS release with which your system is to be compatible.
