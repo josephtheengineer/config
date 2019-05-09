@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 #
-set $term termite
+set $term kitty
 # Note: it's recommended that you pass the final command to sway
 #set $menu dmenu_path | dmenu | xargs swaymsg exec
 set $menu rofi -show drun -display-drun "SYSTEM:" | xargs swaymsg exec
@@ -65,7 +65,7 @@ exec swayidle -w \
 gaps inner 20
 gaps top -20
 #
-font pango:Fantasque Sans Mono 9
+font pango:Noto Mono for Powerline 6
 #
 #                       border    background text      indicator child-border
 client.focused          $fg       $bg        $fg       $fg       $fg
