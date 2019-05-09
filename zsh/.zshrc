@@ -1,7 +1,5 @@
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
-  cat $HOME/config/sway.conf \
-    $HOME/config/sway.local.conf > $HOME/.config/sway/config
 	sway
 	exit 0
 fi
@@ -9,15 +7,15 @@ fi
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
-# Add scripts dir
-export PATH=$PATH:~/scripts
-
 export MPD_HOST=/run/mpd/socket
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/josephtheengineer/.config/oh-my-zsh"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_RUNTIME_DIR="/run/user/$USER"
+export EDITOR="vim"
 
-compinit -d "/home/josephtheengineer/.local/share/zsh/zcompdump"
+compinit -d "$XDG_DATA_HOME/zsh/zcompdump"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
@@ -25,27 +23,14 @@ ZSH_THEME="agnoster"
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-#HIST_STAMPS="dd-mm-yyyy"
-#HISTFILE=~/.zsh-history
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
-export EDITOR='vim'
+$XDG_CONFIG_HOME/scripts/load-aliases.sh
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+system-info --startup
 
 neofetch
 #fortune | cowsay
