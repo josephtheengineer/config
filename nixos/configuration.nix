@@ -198,7 +198,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     bcache-tools
     weechat
     winetricks
-    figlet
+    toilet
     lolcat
     i3blocks-gaps
     rtorrent
@@ -258,6 +258,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     R-packages
     grim
     envypn-font
+    ncat
+    nmap-graphical
   ];
 
   # Determines the NixOS release with which your system is to be compatible.

@@ -61,6 +61,9 @@ RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
 alias system-info="$RUN_SCRIPT system-info"
+alias config="$RUN_SCRIPT configure"
+alias mount-drive="$RUN_SCRIPT mount-drive"
+alias umount-drive="$RUN_SCRIPT umount-drive"
 
 # sortcuts
 alias network='nmtui'
