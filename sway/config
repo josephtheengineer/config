@@ -266,4 +266,4 @@ assign [class="Steam"] 6
 
 exec rm -r .cache/workspaces
 
-
+font Noto Mono for Powerline 7
