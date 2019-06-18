@@ -30,7 +30,11 @@ function create_bar(){
 	do
 		value=$((i * 10))
 		if (( $percent > $value )); then
-			bar=$bar"${green}=${reset}"
+			if [[ $3 == "red" ]]; then
+				bar=$bar"${red}=${reset}"
+			else
+				bar=$bar"${green}=${reset}"
+			fi
 		else
 			bar=$bar"="
 		fi
@@ -95,11 +99,12 @@ info+=("$(uptime | awk '{print $1, $2}') $(date)")
 
 # =========================== Filesystems ==============================
 
-FILESYSTEM_ROOT=$($SCRIPT/filesystem-status.sh | awk '{gsub("%", "");print}')
+filesystem_root=$(df -k | grep "/dev/dm-0" | awk '{print $5}' | awk '{gsub("%", "");print}')
 
-if [[ $FILESYSTEM_ROOT < 90 ]]; then
+if [[ $filesystem_root < 90 ]]; then
 	info+=("${white}   Filesystems : ${green}OK${reset}")
-	info+=("         Root: ${green}OK${reset} [=========]$FILESYSTEM_ROOT% free")
+	create_bar $filesystem_root $(((100-$filesystem_root)))
+	info+=("         Root: ${green}OK${reset} [$bar]$filesystem_root% free")
 fi
 
 # ========================== System Version =============================

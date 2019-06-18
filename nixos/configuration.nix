@@ -155,7 +155,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
   # Virtualbox
   #virtualisation.virtualbox.host.enable = true;
   #users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
-
+  
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -260,6 +260,13 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     envypn-font
     ncat
     nmap-graphical
+    stunnel
+    glxinfo
+    steam
+    wf-recorder
+    mpv
+    bemenu
+    factorio
   ];
 
   # Determines the NixOS release with which your system is to be compatible.

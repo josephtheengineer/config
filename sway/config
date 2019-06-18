@@ -128,16 +128,31 @@ default_border normal 1
 # Workspaces:
 #
     # switch to workspace
-    bindsym $mod+1 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 1
-    bindsym $mod+2 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 2 
-    bindsym $mod+3 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 3
-    bindsym $mod+4 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 4
-    bindsym $mod+5 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 5
-    bindsym $mod+6 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 6 
-    bindsym $mod+7 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 7
-    bindsym $mod+8 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 8
-    bindsym $mod+9 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 9
-    bindsym $mod+0 exec killall conky; exec ~/.config/scripts/workspace-manager.sh switch 10
+    bindsym $mod+1 exec ~/.config/scripts/workspace-manager.sh switch 1
+    bindsym $mod+2 exec ~/.config/scripts/workspace-manager.sh switch 2 
+    bindsym $mod+3 exec ~/.config/scripts/workspace-manager.sh switch 3
+    bindsym $mod+4 exec ~/.config/scripts/workspace-manager.sh switch 4
+    bindsym $mod+5 exec ~/.config/scripts/workspace-manager.sh switch 5
+    bindsym $mod+6 exec ~/.config/scripts/workspace-manager.sh switch 6 
+    bindsym $mod+7 exec ~/.config/scripts/workspace-manager.sh switch 7
+    bindsym $mod+8 exec ~/.config/scripts/workspace-manager.sh switch 8
+    bindsym $mod+9 exec ~/.config/scripts/workspace-manager.sh switch 9
+    bindsym $mod+0 exec ~/.config/scripts/workspace-manager.sh switch 10
+
+    bindsym $mod+F1 exec ~/.config/scripts/workspace-manager.sh switch F1
+    bindsym $mod+F2 exec ~/.config/scripts/workspace-manager.sh switch F2
+    bindsym $mod+F3 exec ~/.config/scripts/workspace-manager.sh switch F3
+    bindsym $mod+F4 exec ~/.config/scripts/workspace-manager.sh switch F4
+    bindsym $mod+F5 exec ~/.config/scripts/workspace-manager.sh switch F5
+    bindsym $mod+F6 exec ~/.config/scripts/workspace-manager.sh switch F6
+    bindsym $mod+F7 exec ~/.config/scripts/workspace-manager.sh switch F7
+    bindsym $mod+F8 exec ~/.config/scripts/workspace-manager.sh switch F8
+    bindsym $mod+F9 exec ~/.config/scripts/workspace-manager.sh switch F9
+    bindsym $mod+F10 exec ~/.config/scripts/workspace-manager.sh switch F10
+    bindsym $mod+F11 exec ~/.config/scripts/workspace-manager.sh switch F11
+    bindsym $mod+F12 exec ~/.config/scripts/workspace-manager.sh switch F12
+
+
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
@@ -149,6 +164,22 @@ default_border normal 1
     bindsym $mod+Shift+8 move container to workspace 8
     bindsym $mod+Shift+9 move container to workspace 9
     bindsym $mod+Shift+0 move container to workspace 10
+
+    bindsym $mod+Shift+F1 move container to workspace F1
+    bindsym $mod+Shift+F2 move container to workspace F2
+    bindsym $mod+Shift+F3 move container to workspace F3
+    bindsym $mod+Shift+F4 move container to workspace F4
+    bindsym $mod+Shift+F5 move container to workspace F5
+    bindsym $mod+Shift+F6 move container to workspace F6
+    bindsym $mod+Shift+F7 move container to workspace F7
+    bindsym $mod+Shift+F8 move container to workspace F8
+    bindsym $mod+Shift+F9 move container to workspace F9
+    bindsym $mod+Shift+F10 move container to workspace F10
+
+    bindsym $mod+Shift+F11 move container to workspace F11
+    bindsym $mod+Shift+F12 move container to workspace F12
+
+
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -227,7 +258,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command ~/.config/sway/status.sh
 
     colors {
         statusline #ffffff
@@ -259,11 +290,12 @@ bindsym $mod+Ctrl+Left resize grow width 5 px or 5 ppt
 bindsym Print exec grim ~/desktop/screenshot.png
 
 # --- Assignment to Workspace -- #
-assign [class="edenuniversebuilder"] 1
-assign [class="Firefox"] 3
-assign [class="Discord"] 4
-assign [class="Steam"] 6
+for_window [class="edenuniversebuilder"] move to workspace 1
+assign [class="godot"] 2
+assign [class="qutebrowser"] 3
+for_window [class="discord"] move to workspace 4
+for_window [class="Steam"] move to workspace 6
 
 exec rm -r .cache/workspaces
 
-font Noto Mono for Powerline 7
+

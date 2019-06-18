@@ -1,0 +1,11 @@
+{"type":"analytics.custom.v1","msg":{"ts":1560427238066,"name":"exit_editor","custom_params":{"time":339.0462646484375,"editor":"VAB"}}}
+{"type":"analytics.custom.v1","msg":{"ts":1560427240848,"name":"exit_editor","custom_params":{"time":341.827880859375,"editor":"VAB"}}}
+{"type":"analytics.custom.v1","msg":{"ts":1560427241143,"name":"unity.sceneLoad","custom_params":{"level_name":"spaceCenter","level_num":5,"total_levels":18}}}
+{"type":"perf.sceneLoadingTime.v1","msg":{"ts":1560427244257,"scene_name":"spaceCenter","scene_index":5,"background_time":20020000,"integrate_time":3258379776,"ts_integrate_time":767000,"total_time":3355612160}}
+{"type":"analytics.custom.v1","msg":{"ts":1560427250443,"name":"savegame_closed","custom_params":{"game_mode":"CAREER","time":1822.589417113137,"vessel_count":0,"vessel_count_flying":0,"vessel_count_orbiting":0,"vessel_count_landed":0}}}
+{"type":"analytics.custom.v1","msg":{"ts":1560427250820,"name":"unity.sceneLoad","custom_params":{"level_name":"loadingBuffer","level_num":1,"total_levels":18}}}
+{"type":"perf.sceneLoadingTime.v1","msg":{"ts":1560427250947,"scene_name":"loadingBuffer","scene_index":1,"background_time":92075000,"integrate_time":246233008,"ts_integrate_time":3000,"total_time":500097984}}
+{"type":"analytics.custom.v1","msg":{"ts":1560427252456,"name":"unity.sceneLoad","custom_params":{"level_name":"kspMainMenu","level_num":2,"total_levels":18}}}
+{"type":"perf.sceneLoadingTime.v1","msg":{"ts":1560427252591,"scene_name":"kspMainMenu","scene_index":2,"background_time":179225008,"integrate_time":257053008,"ts_integrate_time":338358016,"total_time":907936000}}
+{"type":"analytics.appRunning.v1","msg":{"ts":1560427261147,"duration":1101,"local_time_offset":-36000000}}
+(1){"type":"analytics.appStop.v1","msg":{"ts":1560427261164}}
