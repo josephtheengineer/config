@@ -160,7 +160,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    vim
+    neovim
     emacs
     htop
     qutebrowser
@@ -260,6 +260,16 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     envypn-font
     ncat
     nmap-graphical
+    stunnel
+    symbola
+    warzone2100
+    mars
+    superTuxKart
+    tbe
+    crispyDoom
+    galaxis
+    globulation2
+    the-powder-toy
   ];
 
   # Determines the NixOS release with which your system is to be compatible.

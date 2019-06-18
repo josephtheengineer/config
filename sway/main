@@ -265,4 +265,3 @@ assign [class="Discord"] 4
 assign [class="Steam"] 6
 
 exec rm -r .cache/workspaces
-

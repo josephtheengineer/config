@@ -68,7 +68,7 @@ alias umount-drive="$RUN_SCRIPT umount-drive"
 # sortcuts
 alias network='nmtui'
 alias update='sudo nixos-rebuild switch --upgrade'
-alias config='sudo vim /etc/nixos/configuration.nix'
+alias config='sudo nvim /etc/nixos/configuration.nix'
 alias refresh='clear; neofetch; date; ls'
 alias cd='cd-ls'
 alias rm='rm -i'
@@ -78,5 +78,8 @@ alias file-manager='ranger'
 alias rebuild='sudo nixos-rebuild switch'
 alias discord='Discord'
 alias web-browser='firefox'
-alias editor='vim'
+alias e='nvim'
 alias alsamixer='alsamixer -g'
+
+# folders
+alias school='~/workspace/josephtheengineer.ddns.net/school'
