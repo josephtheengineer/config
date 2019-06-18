@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<highscores version="4">
+  <highscore track-name    ="abyss"
+             number-karts  ="4"
+             difficulty    ="1"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="3"
+             reverse       ="false">
+             <entry time    ="204.523"
+                    name    ="josephtheengineer"
+                    kartname="tux"/>
+  </highscore>
+  <highscore track-name    ="snowtuxpeak"
+             number-karts  ="6"
+             difficulty    ="1"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="3"
+             reverse       ="false">
+             <entry time    ="178.449"
+                    name    ="josephtheengineer"
+                    kartname="tux"/>
+  </highscore>
+  <highscore track-name    ="snowtuxpeak"
+             number-karts  ="9"
+             difficulty    ="1"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="2"
+             reverse       ="false">
+             <entry time    ="118.571"
+                    name    ="josephtheengineer"
+                    kartname="kiki"/>
+  </highscore>
+  <highscore track-name    ="scotland"
+             number-karts  ="9"
+             difficulty    ="1"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="3"
+             reverse       ="false">
+             <entry time    ="192.286"
+                    name    ="josephtheengineer"
+                    kartname="tux"/>
+  </highscore>
+</highscores>
