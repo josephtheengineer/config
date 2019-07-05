@@ -88,7 +88,7 @@ KERNEL_VERSION=$(uname -a | awk '{print $3}')
 OS_VERSION=$(sed -n -e 6p /etc/*release* | awk '{gsub("PRETTY_NAME=", "");print}' | awk '{gsub("\"", "");print}')
 SCRIPT="$XDG_CONFIG_HOME/scripts/"
 
-art=$(toilet -d ~/.config/scripts/figlet-fonts -f Big.flf $(hostname) | grep -v -e '^[[:space:]]*$')
+art=$(toilet -d ~/.config/scripts/figlet-fonts -f Big.flf $(echo $HOSTNAME) | grep -v -e '^[[:space:]]*$')
 readarray -t art_array <<<"$art"
 declare -a info
 
