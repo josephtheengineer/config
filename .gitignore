@@ -10,4 +10,5 @@ dconf
 qutebrowser
 bookmarks
 *zcompdump*
+*.zcompdump*
 sway/config
