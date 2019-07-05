@@ -12,3 +12,6 @@ bookmarks
 *zcompdump*
 *.zcompdump*
 sway/config
+unity3d
+google-chrome
+gtk-2.0/gtkfilechooser.ini

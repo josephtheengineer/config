@@ -25,7 +25,7 @@ set $bg #00000000
 ### Output configuration
 #
 output * bg ~/.background-image fill
-#output * bg ~/documents/media/pictures/kaspersky\ v3.png fill
+#output * bg ~/data/media/pictures/kaspersky\ v3.png fill
 #
 # Example configuration:
 #
@@ -127,6 +127,31 @@ default_border normal 1
 #
 # Workspaces:
 #
+
+    workspace 1 output $display1
+    workspace 2 output $display1
+    workspace 3 output $display1
+    workspace 4 output $display1
+    workspace 5 output $display1
+    workspace 6 output $display1
+    workspace 7 output $display1
+    workspace 8 output $display1
+    workspace 9 output $display1
+    workspace 10 output $display1
+    
+    workspace F1 output $display2
+    workspace F2 output $display2
+    workspace F3 output $display2
+    workspace F4 output $display2
+    workspace F5 output $display2
+    workspace F6 output $display2
+    workspace F7 output $display2
+    workspace F8 output $display2
+    workspace F9 output $display2
+    workspace F10 output $display2
+    workspace F11 output $display2
+    workspace F11 output $display2
+
     # switch to workspace
     bindsym $mod+1 exec ~/.config/scripts/workspace-manager.sh switch 1
     bindsym $mod+2 exec ~/.config/scripts/workspace-manager.sh switch 2 
@@ -297,3 +322,4 @@ for_window [class="discord"] move to workspace 4
 for_window [class="Steam"] move to workspace 6
 
 exec rm -r .cache/workspaces
+

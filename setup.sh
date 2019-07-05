@@ -4,7 +4,7 @@ sudo ln -s ~/.config/nixos/configuration.nix /etc/nixos/configuration.nix
 sudo rm -rf /etc/nixos/local-configuration.nix
 sudo ln -s ~/.config/nixos/local-configuration.nix /etc/nixos/local-configuration.nix
 
-cat ~/.config/sway/main \
+cat ~/.config/sway/local-vars ~/.config/sway/main \
     ~/.config/sway/local > ~/.config/sway/config
 
 

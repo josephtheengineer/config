@@ -166,7 +166,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     qutebrowser
     neofetch
     gotop
-    barrier
     gimp
     nodejs
     arc-theme
@@ -177,7 +176,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     powerline-fonts
     zsh
     git
-    git-lfs
     gnome3.gnome-disk-utility
     pavucontrol
     roboto-mono
@@ -230,7 +228,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     source-sans-pro
     source-code-pro
     godot
-    libreoffice
     system-config-printer
     termite
     w3m
@@ -266,15 +263,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     wf-recorder
     mpv
     bemenu
-    factorio
     symbola
     warzone2100
-    mars
-    superTuxKart
-    tbe
-    crispyDoom
-    galaxis
-    globulation2
     the-powder-toy
   ];
 

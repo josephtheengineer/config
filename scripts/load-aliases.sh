@@ -67,7 +67,7 @@ alias umount-drive="$RUN_SCRIPT umount-drive"
 
 # sortcuts
 alias network='nmtui'
-alias update='sudo nixos-rebuild switch --upgrade'
+alias update='sudo nixos-rebuild switch --upgrade --repair'
 alias config='sudo nvim /etc/nixos/configuration.nix'
 alias refresh='clear; neofetch; date; ls'
 alias cd='cd-ls'
