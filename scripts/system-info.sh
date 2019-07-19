@@ -29,7 +29,7 @@ function create_bar(){
 	for i in {1..10};
 	do
 		value=$((i * 10))
-		if (( $percent > $value )); then
+		if [ $percent -gt $value ] || [ $percent -eq 100 ]; then
 			if [[ $3 == "red" ]]; then
 				bar=$bar"${red}=${reset}"
 			else
@@ -39,6 +39,7 @@ function create_bar(){
 			bar=$bar"="
 		fi
 	done
+	echo $percent
 }
 
 function server_status(){
@@ -63,11 +64,18 @@ function server_status(){
 
 function internet_status(){
 	internetq_status="${red}OFFLINE${reset}"
-	ping -c 1 -W 1 $1 >/dev/null && internetq_status="${green}ONLINE${reset}" > /dev/null
-	
-	if grep -q "ONLINE" <<<"$internetq_status"; then
+	ping_command=$(ping -c 1 -w 1 $1)
+
+	# ping -c 1 -W 1 $1 > /dev/null && internetq_status="${green}ONLINE${reset}" > /dev/null
+		
+	if grep -q "time=" <<<"$ping_command"; then
     		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+		internetq_status="${green}ONLINE${reset}"
 		internet_status="ONLINE"
+	elif grep -q "Packet filtered" <<<"$ping_command"; then
+		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+		internetq_status="${yellow}FILTERED${reset}"
+		internet_status="FILTERED"
 	else
 		echo "OFFLINE" >> ~/.local/share/system-status/$1-uptime
 		internet_status="OFFLINE"
@@ -99,7 +107,7 @@ info+=("$(uptime | awk '{print $1, $2}') $(date)")
 
 # =========================== Filesystems ==============================
 
-filesystem_root=$(df -k | grep "/dev/dm-0" | awk '{print $5}' | awk '{gsub("%", "");print}')
+filesystem_root=$(df -k . | sed -n 2p | awk '{print $5}' | awk '{gsub("%", "");print}')
 
 if [[ $filesystem_root < 90 ]]; then
 	info+=("${white}   Filesystems : ${green}OK${reset}")
@@ -130,6 +138,10 @@ if [[ $internet_status == "ONLINE" && $genesis_status == "ONLINE" ]]; then
 	network_status="${green}OK${reset}"
 elif [[ $internet_status == "ONLINE" && $genesis_status == "OFFLINE" ]]; then
 	network_status="${red}SSH OFFLINE${reset}"
+elif [[ $internet_status == "FILTERED" && $genesis_status == "OFFLINE" ]]; then
+        network_status="${red}FILTERED // SSH OFFLINE${reset}"
+elif [[ $internet_status == "FILTERED" && $genesis_status == "ONLINE" ]]; then
+        network_status="${yellow}FILTERED${reset}"
 fi
 
 info+=("${white} Network Status: $network_status${reset}")
