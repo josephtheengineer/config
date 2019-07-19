@@ -51,6 +51,7 @@ in
   services = {
     openssh = {
       enable = true;
+      ports = [ 22 123];
       permitRootLogin = "no";
       #challengeResponseAuthentication = false;
       #passwordAuthentication = false;
@@ -229,7 +230,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     source-code-pro
     godot
     system-config-printer
-    termite
     w3m
     gnumake
     youtube-dl
@@ -262,7 +262,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     steam
     wf-recorder
     mpv
-    bemenu
+    #bemenu
     symbola
     warzone2100
     the-powder-toy

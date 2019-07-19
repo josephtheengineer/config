@@ -39,7 +39,6 @@ function create_bar(){
 			bar=$bar"="
 		fi
 	done
-	echo $percent
 }
 
 function server_status(){
