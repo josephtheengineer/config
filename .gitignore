@@ -10,6 +10,7 @@ dconf
 qutebrowser
 bookmarks
 *zcompdump*
+*.zcompdump*
 sway/config
 unity3d
 google-chrome
