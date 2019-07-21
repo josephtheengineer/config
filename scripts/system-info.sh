@@ -151,7 +151,22 @@ info+=("$genesis_info")
 # =====================================================================
 
 info+=("${white}Services Status:${reset}")
-info+=("       Update: Active")
+
+infinity_status="${red}Inactive${reset}"
+
+if ps ax | grep -v grep | grep "sh .config/scripts/infinity.sh" > /dev/null; then
+	infinity_status="${green}Active${reset}"
+fi
+
+info+=("     Infinity: $infinity_status")
+
+nixos_status="Inactive"
+
+if ps ax | grep -v grep | grep "nixos" > /dev/null; then
+        nixos_status="${green}Active${reset}"
+fi
+
+info+=("          Nix: $nixos_status")
 info+=("         Sync: Inactive")
 
 info+=("${white}Identity Status:${reset}")

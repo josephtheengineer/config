@@ -268,6 +268,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     the-powder-toy
     symbola
     multimc
+    dialog
   ];
 
   # Determines the NixOS release with which your system is to be compatible.
