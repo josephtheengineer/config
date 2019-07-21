@@ -1,22 +1,20 @@
 function main {
-        encrypted=false
-        drive=""
-        path=""
+	verbose=false
+	path=""
 
-        check $@
+	check $@
 
-        mount "$drive" "$path" "$encrypted"
-
-        echo $drive "and" $path
-        exit 1
+	echo "Starting Infinity..."
+	zsh
+	#tick
+	exit 1
 }
 
 function check {
         local OPTIND opt
-        while getopts ":ed:p:" opt; do
+        while getopts ":vp:" opt; do
                 case $opt in
-                        e) encrypted=true;;
-                        d) drive="$OPTARG";;
+                        e) verbose=true;;
                         p) path="$OPTARG";;
                         \?h) help;exit 1;;
                 esac
@@ -24,3 +22,9 @@ function check {
         shift $((OPTIND -1))
 }
 
+function tick {
+	echo "Starting Service..."
+	while sleep 1; do echo $(date) " OK"; done
+}
+
+main $@

@@ -267,6 +267,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     warzone2100
     the-powder-toy
     symbola
+    dialog
   ];
 
   # Determines the NixOS release with which your system is to be compatible.
