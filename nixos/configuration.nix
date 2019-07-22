@@ -79,10 +79,6 @@ in
   nix = {
     gc.automatic = true;
     gc.dates = "12:00";
-
-    extraOptions = ''
-      connect-timeout = 10
-    '';
   };
   users.users = {
     josephtheengineer = {
@@ -135,7 +131,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 				];
 
   time.timeZone = "Australia/Brisbane";
-  nixpkgs.config.allowUnfree = true;
   virtualisation.libvirtd.enable = true;
   sound.enable = true;
 
@@ -216,7 +211,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     parted
     i3blocks
     ffmpeg
-    discord
     adoptopenjdk-bin
     killall
     connman-ncurses
@@ -233,7 +227,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     w3m
     gnumake
     youtube-dl
-    google-chrome
     tigervnc
     conky
     kitty
@@ -251,7 +244,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     zathura
     cmatrix
     pandoc
-    minecraft
     R-packages
     grim
     envypn-font
@@ -259,7 +251,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     nmap-graphical
     stunnel
     glxinfo
-    steam
     wf-recorder
     mpv
     #bemenu
