@@ -254,13 +254,19 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     wf-recorder
     mpv
     #bemenu
-    symbola
     warzone2100
     the-powder-toy
-    symbola
     multimc
-    dialog
+    aerc
   ];
+
+  fonts = {
+    fonts = with pkgs; [
+        symbola
+    ];
+    enableDefaultFonts = true;
+    fontconfig.ultimate.enable = true;
+  };
 
   # Determines the NixOS release with which your system is to be compatible.
   # You should change this only after the release notes say you should.
