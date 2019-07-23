@@ -253,11 +253,18 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     glxinfo
     wf-recorder
     mpv
-    #bemenu
+    bemenu
     warzone2100
     the-powder-toy
     multimc
     aerc
+    wl-clipboard
+    mako
+    slurp
+    waybar
+    #virtboard
+    wallutils
+
   ];
 
   fonts = {
