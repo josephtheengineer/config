@@ -67,7 +67,7 @@ alias umount-drive="$RUN_SCRIPT umount-drive"
 
 # sortcuts
 alias network='nmtui'
-alias update='sudo nixos-rebuild switch --upgrade --repair'
+alias update='sudo nixos-rebuild switch --upgrade --repair --keep-going'
 alias config='sudo nvim /etc/nixos/configuration.nix'
 alias refresh='clear; neofetch; date; ls'
 alias cd='cd-ls'
@@ -77,7 +77,7 @@ alias poweroff='echo "Shutting down `hostname` in 5 seconds. Press Ctrl+C to can
 alias task-manager='htop'
 alias system-monitor='gotop'
 alias file-manager='ranger'
-alias rebuild='sudo nixos-rebuild switch'
+alias rebuild='sudo nixos-rebuild switch --keep-going'
 alias discord='Discord'
 alias web-browser='firefox'
 alias e='nvim'
