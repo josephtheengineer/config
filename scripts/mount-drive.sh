@@ -7,7 +7,6 @@ function main {
 
 	mount "$drive" "$path" "$encrypted"
 
-	echo $drive "and" $path
 	exit 1
 }
 
@@ -41,7 +40,7 @@ function mount {
 	fi
 	
 	[[ "$drive" = "" ]] && exit 1
-	sudo mount "$drive" && exit 0
+	#sudo mount "$drive" && exit 0
 	
 	mountpoint=""
 	if [ -z "$2" ]; then

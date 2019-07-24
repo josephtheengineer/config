@@ -60,10 +60,13 @@ help()
 RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
-alias system-info="$RUN_SCRIPT system-info"
-alias config="$RUN_SCRIPT configure"
-alias mount-drive="$RUN_SCRIPT mount-drive"
-alias umount-drive="$RUN_SCRIPT umount-drive"
+alias cleanup="$RUN_SCRIPT cleanup"
+
+for file in $XDG_CONFIG_HOME/scripts/*
+do
+	filename=$(basename $file .sh)
+	alias $filename="$RUN_SCRIPT $filename"
+done
 
 # sortcuts
 alias network='nmtui'
@@ -81,6 +84,7 @@ alias rebuild='sudo nixos-rebuild switch --keep-going'
 alias discord='Discord'
 alias web-browser='firefox'
 alias e='nvim'
+alias c='configure'
 alias alsamixer='alsamixer -g'
 
 # folders
