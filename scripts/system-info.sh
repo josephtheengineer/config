@@ -4,12 +4,17 @@ if [ ! -d ~/.local/share/system-status/ ]; then
   mkdir ~/.local/share/system-status
 fi
 
+num=0
+art=$(toilet -d ~/.config/scripts/figlet-fonts -f Big.flf $(echo $HOSTNAME) | grep -v -e '^[[:space:]]*$')
+readarray -t art_array <<<"$art"
+declare -a info
+
 internet_status="OFFLINE"
 internet_info=""
 genesis_status="OFFLINE"
 genesis_info=""
 
-function create_bar(){
+function create_bar {
 	#if [[ -z $2 && -z $3]]
 	if [[ -z $2 ]]; then
 		percent=$1
@@ -41,7 +46,7 @@ function create_bar(){
 	done
 }
 
-function server_status(){
+function server_status {
 	status="${red}OFFLINE${reset}"
 	status_command=$(timeout 2 nmap $2 -PN -p ssh | grep open) 
 	if [[ $status_command == "22/tcp open  ssh" ]]; then
@@ -61,7 +66,7 @@ function server_status(){
 	genesis_info=("      $1: $status [$bar]$percent% uptime")
 }
 
-function internet_status(){
+function internet_status {
 	internetq_status="${red}OFFLINE${reset}"
 	ping_command=$(ping -c 1 -w 1 $1)
 
@@ -89,44 +94,83 @@ function internet_status(){
 
 }
 
+function output {
+	if [ ${art_array[num]+abc} ]; then
+		echo -e "${art_array[num]}" "$1"
+        else
+                length=$((${#art_array[0]} - 1))
+                for ((i=0; i<=$length; i++))
+                do
+                       	if (( $(( ( RANDOM % 4 )  + 0 )) == 0 )); then
+                               	echo -ne $(( ( RANDOM % 9 )  + 0 ))
+                       	else
+                               	echo -ne " "
+                       	fi
+		done
+        	        echo -e " $1"
+	fi
+        num=$((num+1))
+}
+
 # =========================== Start ===================================
 
 KERNEL_VERSION=$(uname -a | awk '{print $3}')
 OS_VERSION=$(sed -n -e 6p /etc/*release* | awk '{gsub("PRETTY_NAME=", "");print}' | awk '{gsub("\"", "");print}')
 SCRIPT="$XDG_CONFIG_HOME/scripts/"
 
-art=$(toilet -d ~/.config/scripts/figlet-fonts -f Big.flf $(echo $HOSTNAME) | grep -v -e '^[[:space:]]*$')
-readarray -t art_array <<<"$art"
-declare -a info
+output "Welcome to Kernel $KERNEL_VERSION, $OS_VERSION."
+output "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED!"
 
-info+=("Welcome to Kernel $KERNEL_VERSION, $OS_VERSION.")
-info+=("UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED!")
-
-info+=("$(uptime | awk '{print $1, $2}') $(date)")
-
-# =========================== Filesystems ==============================
-
-filesystem_root=$(df -k . | sed -n 2p | awk '{print $5}' | awk '{gsub("%", "");print}')
-
-if [[ $filesystem_root < 90 ]]; then
-	info+=("${white}   Filesystems : ${green}OK${reset}")
-	create_bar $filesystem_root $(((100-$filesystem_root)))
-	info+=("         Root: ${green}OK${reset} [$bar]$filesystem_root% free")
-fi
+output "$(uptime | awk '{print $1, $2}') $(date)"
 
 # ========================== System Version =============================
-
+          
 if [[ true ]]; then
-	info+=("${white}System Version : ${green}OK${reset}")
+        output "${white} System Version: ${green}OK${reset}"
 fi
 
 # ========================= Config Version ==============================
 
 if [[ true ]]; then
-	info+=("${white}Config Version : ${green}OK${reset}")
+        output "${white} Config Version: ${green}OK${reset}"
+fi    
+
+# ============================ Power ====================================
+
+bat_status=$(acpi)
+
+bat_percent=$(echo $bat_status | awk '{print $4}' | rev | cut -c 2- | rev)
+bat_name=$(echo $bat_status | awk '{print $1, $2}')   
+
+power_status="${red}Low${reset}"
+
+if [ -z "$bat_status" ]; then
+	power_status="${green}OK${reset}"	
+else
+	if [[ $bat_status > 20 ]]; then
+		power_status="${green}OK${reset}"
+	else
+		power_status="${red}Low${reset}"
+	fi
 fi
 
-# ======================== Network Status  ==============================
+output "$white   Power Status: $power_status"
+create_bar $bat_percent
+output "    $bat_name $power_status [$bar]$bat_percent% full"
+
+
+
+# ============================ Filesystems ==============================
+
+filesystem_root=$(df -k . | sed -n 2p | awk '{print $5}' | awk '{gsub("%", "");print}')
+
+if [[ $filesystem_root < 90 ]]; then
+	output "${white}    Filesystems: ${green}OK${reset}"
+	create_bar $filesystem_root $(((100-$filesystem_root)))
+	output "         Root: ${green}OK${reset} [$bar]$filesystem_root% free"
+fi
+
+# ======================= Network Status  ==============================
 
 internet_status archlinux.org
 server_status genesis josephtheengineer.ddns.net
@@ -143,14 +187,14 @@ elif [[ $internet_status == "FILTERED" && $genesis_status == "ONLINE" ]]; then
         network_status="${yellow}FILTERED${reset}"
 fi
 
-info+=("${white} Network Status: $network_status${reset}")
-info+=("$internet_info")
-info+=("$genesis_info")
+output "${white} Network Status: $network_status${reset}"
+output "$internet_info"
+output "$genesis_info"
 
 
 # =====================================================================
 
-info+=("${white}Services Status:${reset}")
+output "${white}Services Status:${reset}"
 
 infinity_status="${red}Inactive${reset}"
 
@@ -158,7 +202,7 @@ if ps ax | grep -v grep | grep "sh .config/scripts/infinity.sh" > /dev/null; the
 	infinity_status="${green}Active${reset}"
 fi
 
-info+=("     Infinity: $infinity_status")
+output "     Infinity: $infinity_status"
 
 nixos_status="Inactive"
 
@@ -166,32 +210,12 @@ if ps ax | grep -v grep | grep "nixos" > /dev/null; then
         nixos_status="${green}Active${reset}"
 fi
 
-info+=("          Nix: $nixos_status")
-info+=("         Sync: Inactive")
+output "          Nix: $nixos_status"
+output "         Sync: Inactive"
 
-info+=("${white}Identity Status:${reset}")
-info+=("     GPG Sign: unlocked, valid")
-info+=("     Keychain: locked, valid")
-#info+=("Last login Fri May 35 from 192.168.0.1")
+output "${white}Identity Status:${reset}"
+output "     GPG Sign: unlocked, valid"
+output "     Keychain: locked, valid"
+#output "Last login Fri May 35 from 192.168.0.1"
 
-#info+=("$(ls -C)")
-
-num=0
-for i in "${info[@]}"
-do
-	if [ ${art_array[num]+abc} ]; then
-		echo -e "${art_array[num]}" "$i"
-	else
-		length=$((${#art_array[0]} - 1))
-		for ((i=0;i<=$length;i++))
-		do
-			if (( $(( ( RANDOM % 4 )  + 0 )) == 0 )); then
-				echo -ne $(( ( RANDOM % 9 )  + 0 ))
-			else
-				echo -ne " "
-			fi
-		done
-		echo -e " ${info[num]}"
-	fi
-	num=$((num+1))
-done
+#output "$(ls -C)"
