@@ -168,11 +168,9 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     arc-icon-theme
     breeze-gtk
     capitaine-cursors
-    powerline-fonts
     zsh
     git
     pavucontrol
-    roboto-mono
     ranger
     firefox
     unzip
@@ -181,7 +179,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     stdenv
     bcache-tools
     weechat
-    winetricks
     toilet
     lolcat
     rtorrent
@@ -195,16 +192,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     parted
     ffmpeg
     adoptopenjdk-bin
-    killall
-    connman-ncurses
-    connmanui
-    connman-gtk
     arc-icon-theme
     ppp
     pptp
     rofi
-    source-sans-pro
-    source-code-pro
     godot
     system-config-printer
     w3m
@@ -229,7 +220,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     pandoc
     R-packages
     grim
-    envypn-font
     ncat
     nmap-graphical
     stunnel
@@ -252,6 +242,11 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
   fonts = {
     fonts = with pkgs; [
         symbola
+	powerline-fonts
+	envypn-font
+	roboto-mono
+	source-sans-pro
+	source-code-pro
     ];
     enableDefaultFonts = true;
     fontconfig.ultimate.enable = true;

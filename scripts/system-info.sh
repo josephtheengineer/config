@@ -137,7 +137,7 @@ fi
 
 # ============================ Power ====================================
 
-bat_status=$(acpi)
+bat_status=$(acpi 2>/dev/null)
 
 bat_percent=$(echo $bat_status | awk '{print $4}' | rev | cut -c 2- | rev)
 bat_name=$(echo $bat_status | awk '{print $1, $2}')   
@@ -152,12 +152,11 @@ else
 	else
 		power_status="${red}Low${reset}"
 	fi
+
+	output "$white   Power Status: $power_status"
+	create_bar $bat_percent
+	output "    $bat_name $power_status [$bar]$bat_percent% full"
 fi
-
-output "$white   Power Status: $power_status"
-create_bar $bat_percent
-output "    $bat_name $power_status [$bar]$bat_percent% full"
-
 
 
 # ============================ Filesystems ==============================
