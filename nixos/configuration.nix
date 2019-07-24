@@ -157,7 +157,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    emacs
     htop
     qutebrowser
     neofetch
@@ -172,20 +171,11 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     powerline-fonts
     zsh
     git
-    gnome3.gnome-disk-utility
     pavucontrol
     roboto-mono
-    gnome3.gnome-font-viewer
-    xfce.tumbler
     ranger
-    python3
-    mono
     firefox
-    cmake
-    clang_39
     unzip
-    shutter
-    pywal
     nix-prefetch-git
     zip
     stdenv
@@ -194,22 +184,15 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     winetricks
     toilet
     lolcat
-    i3blocks-gaps
     rtorrent
-    libvirt
-    virtmanager
-    qemu
     networkmanager
-    networkmanagerapplet
     cryptsetup
     lvm2
     xorg.xrdb
     iw
     iwd
-    qemu_kvm
     capitaine-cursors
     parted
-    i3blocks
     ffmpeg
     adoptopenjdk-bin
     killall
@@ -264,7 +247,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     waybar
     #virtboard
     wallutils
-
   ];
 
   fonts = {
