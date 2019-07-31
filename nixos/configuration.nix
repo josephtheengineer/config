@@ -238,6 +238,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     #virtboard
     wallutils
     termite
+    gource
+    connman-ncurses
+    connmanui
+    connman-gtk
   ];
 
   fonts = {

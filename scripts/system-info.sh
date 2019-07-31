@@ -137,10 +137,12 @@ fi
 
 # ============================ Power ====================================
 
-bat_status=$(acpi 2>/dev/null)
+bat_status=$(acpi -i 2>/dev/null)
 
-bat_percent=$(echo $bat_status | awk '{print $4}' | rev | cut -c 2- | rev)
-bat_name=$(echo $bat_status | awk '{print $1, $2}')   
+bat_percent=$(echo $bat_status | sed -n 1p | awk '{print $4}' | rev | cut -c 3- | rev)
+bat_name=$(echo $bat_status | sed -n 1p | awk '{print $1, $2}')   
+bat_charging_status=$(echo $bat_status | sed -n 1p | awk '{print $3}')
+bat_remaining=$(echo $bat_status | sed -n 1p | awk '{print $5}')
 
 power_status="${red}Low${reset}"
 
@@ -148,14 +150,18 @@ if [ -z "$bat_status" ]; then
 	power_status="${green}OK${reset}"	
 else
 	if [[ $bat_status > 20 ]]; then
-		power_status="${green}OK${reset}"
+		if [[ $bat_charging_status = "Discharging," ]]; then
+			power_status="${yellow}DISCHARGING"${reset}
+		else
+			power_status="${green}OK${reset}"
+		fi
 	else
 		power_status="${red}Low${reset}"
 	fi
 
 	output "$white   Power Status: $power_status"
 	create_bar $bat_percent
-	output "    $bat_name $power_status [$bar]$bat_percent% full"
+	output "    $bat_name $power_status [$bar]$bat_percent% full, $bat_remaining remaining"
 fi
 
 
