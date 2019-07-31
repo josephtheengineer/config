@@ -244,8 +244,9 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     termite
     tree
     gource
-    oidentd
-    minecraft
+    connman-ncurses
+    connmanui
+    connman-gtk
   ];
 
   fonts = {
