@@ -56,8 +56,10 @@ in
       #challengeResponseAuthentication = false;
       #passwordAuthentication = false;
     };
-    printing.enable = true;
-    printing.drivers = [ pkgs.gutenprint ];
+    printing = {
+      enable = true;
+      drivers = [ pkgs.gutenprint ];
+    };
   };
 
   programs = {
@@ -152,6 +154,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
   #virtualisation.virtualbox.host.enable = true;
   #users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
   
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -238,6 +242,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     #virtboard
     wallutils
     termite
+    tree
+    gource
+    oidentd
+    minecraft
   ];
 
   fonts = {

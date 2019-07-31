@@ -25,7 +25,7 @@ set $bg #00000000
 ### Output configuration
 #
 output * bg ~/.background-image fill
-#output * bg ~/data/media/pictures/kaspersky\ v3.png fill
+#output * bg ~/media/media/pictures/kaspersky\ v3.png fill
 #
 # Example configuration:
 #
