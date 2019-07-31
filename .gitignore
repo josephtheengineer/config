@@ -9,9 +9,11 @@ mimeapps.list
 dconf
 qutebrowser
 bookmarks
-*zcompdump*
-*.zcompdump*
+zsh/.zcompdump
+zsh/.zcompdump*
 sway/config
 unity3d
 google-chrome
 gtk-2.0/gtkfilechooser.ini
+cef_user_data
+nethack

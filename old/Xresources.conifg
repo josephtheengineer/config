@@ -1,9 +1,0 @@
-URxvt.font: xft:DejaVu Sans Mono for Powerline
-URxvt.letterSpace: -1.5
-URxvt.scrollBar: false
-URxvt.internalBorder:  20
-
-URxvt.background: #071d22
-URxvt.foreground: #ffffff
-
-
