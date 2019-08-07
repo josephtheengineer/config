@@ -152,6 +152,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 	
 	nixpkgs.config.allowUnfree = true;
 
+	# Virtualbox
+	#virtualisation.virtualbox.host.enable = true;
+	#users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
+  
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -237,15 +241,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		waybar
 		#virtboard
 		wallutils
-		termite
-		tree
 		gource
-		connman-ncurses
-		connmanui
-		connman-gtk
-		ncdu
-		bluez-tools
-		minecraft
+		networkmanagerapplet
 	];
 
 	fonts = {
