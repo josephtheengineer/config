@@ -237,11 +237,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
     waybar
     #virtboard
     wallutils
-    termite
     gource
-    connman-ncurses
-    connmanui
-    connman-gtk
+    networkmanagerapplet
   ];
 
   fonts = {
