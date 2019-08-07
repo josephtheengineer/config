@@ -47,6 +47,7 @@ in
 
 	hardware = {
 		pulseaudio.enable = true;
+		bluetooth.enable = true;
 	};
 
 	system = {
@@ -92,6 +93,7 @@ in
 			automatic = true;
 			dates = "12:00";
 		};
+		autoOptimiseStore = true;
 	};
 
 	users.users = {
@@ -148,7 +150,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 	virtualisation.libvirtd.enable = true;
 	sound.enable = true;
 	
-	#nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.allowUnfree = true;
 
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
@@ -233,7 +235,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		mako
 		slurp
 		waybar
-		virtboard
+		#virtboard
 		wallutils
 		termite
 		tree
@@ -241,6 +243,9 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		connman-ncurses
 		connmanui
 		connman-gtk
+		ncdu
+		bluez-tools
+		minecraft
 	];
 
 	fonts = {

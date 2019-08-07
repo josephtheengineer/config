@@ -1,3 +1,4 @@
 nix-env -e '*'
 update
-nix-collect-garbage
+nix-collect-garbage -d
+nix-store --optimise
