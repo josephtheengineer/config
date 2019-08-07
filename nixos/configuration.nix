@@ -1,104 +1,118 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+#           ██                         
+#          ░░                          
+#  ███████  ██ ██   ██  ██████   ██████
+# ░░██░░░██░██░░██ ██  ██░░░░██ ██░░░░ 
+#  ░██  ░██░██ ░░███  ░██   ░██░░█████ 
+#  ░██  ░██░██  ██░██ ░██   ░██ ░░░░░██
+#  ███  ░██░██ ██ ░░██░░██████  ██████ 
+# ░░░   ░░ ░░ ░░   ░░  ░░░░░░  ░░░░░░  
+
+# /etc/nixos/configuration.nix
+# man configuration.nix // nixos-help
 
 { config, pkgs, ... }:
 with pkgs;
 let
-  R-packages = rWrapper.override{ packages = with rPackages; [ rmarkdown ]; };
+	R-packages = rWrapper.override{ packages = with rPackages; [ rmarkdown ]; };
 in
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./local-configuration.nix
-    ];
+	imports =
+		[ # Include the results of the hardware scan.
+			/etc/nixos/hardware-configuration.nix
+			./local-configuration.nix
+		];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest; 
-    loader.grub.enable = false;
+	boot = {
+		kernelPackages = pkgs.linuxPackages_latest;
+		loader = {
+			grub.enable = false;
+			# Use the systemd-boot EFI boot loader.
+			systemd-boot.enable = true;
+			efi.canTouchEfiVariables = true;
+		};
+	};
 
-    # Use the systemd-boot EFI boot loader.
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
-  };
+	networking = {
+		networkmanager.enable = true;
 
-  networking = {
-    networkmanager.enable = true;
+		# Open ports in the firewall.
+		firewall = {
+			allowedTCPPorts = [ 22 8888 ];
+			allowedUDPPorts = [ 22 8888 ];
+		};
 
-    # Open ports in the firewall.
-    firewall.allowedTCPPorts = [ 22 8888 ];
-    firewall.allowedUDPPorts = [ 22 8888 ];
+		#proxy.default = "http://user:password@proxy:port/";
+		#proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+	};
 
-    #proxy.default = "http://user:password@proxy:port/";
-    #proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  };
+	hardware = {
+		pulseaudio.enable = true;
+	};
 
-  hardware = {
-    # Steam 32 bit stuff
-    opengl.driSupport32Bit = true;
-    pulseaudio.support32Bit = true;
+	system = {
+		autoUpgrade = {
+			enable = true;
+			channel = "https://nixos.org/channels/nixos-unstable";
+		};
+	};
 
-    pulseaudio.enable = true;   
-  };
+	services = {
+		openssh = {
+			enable = true;
+			ports = [ 22 123];
+			permitRootLogin = "no";
+			#challengeResponseAuthentication = false;
+			#passwordAuthentication = false;
+		};
+		printing = {
+			enable = true;
+			drivers = [ pkgs.gutenprint ];
+		};
+	};
 
-  system = {
-    autoUpgrade.enable = true;
-    autoUpgrade.channel = "https://nixos.org/channels/nixos-unstable";
-    
-  };
+	programs = {
+		dconf.enable = true;
+		light.enable = true;
+		sway.enable = true;
+		zsh = {
+			enable = true;
+			histFile = "\$HOME/.local/share/zsh/history";
+			ohMyZsh.enable = true;
+			ohMyZsh.theme = "agnoster";
+			promptInit = ''
+				export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
+				export ZDOTDIR="/home/josephtheengineer/.config/zsh"
+			'';
+			syntaxHighlighting.enable = true;
+		};
+	};
 
-  services = {
-    openssh = {
-      enable = true;
-      ports = [ 22 123];
-      permitRootLogin = "no";
-      #challengeResponseAuthentication = false;
-      #passwordAuthentication = false;
-    };
-    printing.enable = true;
-    printing.drivers = [ pkgs.gutenprint ];
-  };
+	nix = {
+		gc = {
+			automatic = true;
+			dates = "12:00";
+		};
+	};
 
-  programs = {
-    dconf.enable = true;
-    light.enable = true;
-    sway.enable = true;
-    zsh.enable = true;
-    zsh.histFile = "\$HOME/.local/share/zsh/history";
-    zsh.ohMyZsh.enable = true;
-    zsh.ohMyZsh.theme = "agnoster";
-    zsh.promptInit = ''
-      export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-      export ZDOTDIR="/home/josephtheengineer/.config/zsh"
-    '';
-    zsh.syntaxHighlighting.enable = true;
-    
-  };
+	users.users = {
+		josephtheengineer = {
+			isNormalUser = true;
+			home = "/home/josephtheengineer";
+			description = "admin";
+			extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" ];
+			shell = pkgs.zsh;
+			uid = 1000;
+		};
+		eco = {
+			isNormalUser = true;
+			home = "/home/eco";
+			description = "awesome";
+			extraGroups = [];
+			shell = pkgs.zsh;
+		};
+	};
 
-  nix = {
-    gc.automatic = true;
-    gc.dates = "12:00";
-  };
-  users.users = {
-    josephtheengineer = {
-      isNormalUser = true;
-      home = "/home/josephtheengineer";
-      description = "admin";
-      extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" ];
-      shell = pkgs.zsh;
-      uid = 1000;
-    };
-    eco = {
-      isNormalUser = true;
-      home = "/home/eco";
-      description = "awesome";
-      extraGroups = [];
-      shell = pkgs.zsh;
-    };
-  };
-
-  security.pki.certificates =   [ ''
+	security.pki.certificates =		[ ''
 -----BEGIN CERTIFICATE-----
 MIIEmDCCA4CgAwIBAgIJAIn2s0rMQBBXMA0GCSqGSIb3DQEBCwUAMIGOMS0wKwYD
 VQQDFCRDeWJlckhvdW5kIFtwYWR1YXFsZF0gMjAxODA3MTIwNDAzMjExCzAJBgNV
@@ -130,131 +144,118 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 				'' 
 				];
 
-  time.timeZone = "Australia/Brisbane";
-  virtualisation.libvirtd.enable = true;
-  sound.enable = true;
+	time.timeZone = "Australia/Brisbane";
+	virtualisation.libvirtd.enable = true;
+	sound.enable = true;
+	
+	#nixpkgs.config.allowUnfree = true;
 
-  # Enable the i3-gaps Desktop Environment.
-  #services.xserver = {
-    #enable = true;
-    #displayManager.startx.enable = true;
-    #displayManager.lightdm.enable = false;
-    #desktopManager = {
-      #default = "none";
-      #xterm.enable = false;
-    #};
-    #windowManager.i3.package = pkgs.i3-gaps;
-    #windowManager.i3.enable = true;
-    #videoDrivers = [ "nvidia" ];
-  #};
-
-  # Virtualbox
-  #virtualisation.virtualbox.host.enable = true;
-  #users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
+	# Virtualbox
+	#virtualisation.virtualbox.host.enable = true;
+	#users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
   
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wget
-    neovim
-    htop
-    qutebrowser
-    neofetch
-    gotop
-    gimp
-    nodejs
-    arc-theme
-    gtk-engine-murrine
-    arc-icon-theme
-    breeze-gtk
-    capitaine-cursors
-    zsh
-    git
-    pavucontrol
-    ranger
-    firefox
-    unzip
-    nix-prefetch-git
-    zip
-    stdenv
-    bcache-tools
-    weechat
-    toilet
-    lolcat
-    rtorrent
-    networkmanager
-    cryptsetup
-    lvm2
-    xorg.xrdb
-    iw
-    iwd
-    capitaine-cursors
-    parted
-    ffmpeg
-    adoptopenjdk-bin
-    arc-icon-theme
-    ppp
-    pptp
-    rofi
-    godot
-    system-config-printer
-    w3m
-    gnumake
-    youtube-dl
-    tigervnc
-    conky
-    kitty
-    fortune
-    cowsay
-    bsdgames
-    gnupg
-    mpd
-    ncmpcpp
-    mpc_cli 
-    file
-    acpi
-    groff
-    tectonic
-    zathura
-    cmatrix
-    pandoc
-    R-packages
-    grim
-    ncat
-    nmap-graphical
-    stunnel
-    glxinfo
-    wf-recorder
-    mpv
-    bemenu
-    warzone2100
-    the-powder-toy
-    multimc
-    aerc
-    wl-clipboard
-    mako
-    slurp
-    waybar
-    #virtboard
-    wallutils
-    gource
-    networkmanagerapplet
-  ];
+	# List packages installed in system profile. To search, run:
+	# $ nix search wget
+	environment.systemPackages = with pkgs; [
+		wget
+		neovim
+		htop
+		qutebrowser
+		neofetch
+		gotop
+		gimp
+		nodejs
+		arc-theme
+		gtk-engine-murrine
+		arc-icon-theme
+		breeze-gtk
+		capitaine-cursors
+		zsh
+		git
+		pavucontrol
+		ranger
+		firefox
+		unzip
+		nix-prefetch-git
+		zip
+		stdenv
+		bcache-tools
+		weechat
+		toilet
+		lolcat
+		rtorrent
+		networkmanager
+		cryptsetup
+		lvm2
+		xorg.xrdb
+		iw
+		iwd
+		capitaine-cursors
+		parted
+		ffmpeg
+		adoptopenjdk-bin
+		arc-icon-theme
+		ppp
+		pptp
+		rofi
+		godot
+		system-config-printer
+		w3m
+		gnumake
+		youtube-dl
+		tigervnc
+		conky
+		kitty
+		fortune
+		cowsay
+		bsdgames
+		gnupg
+		mpd
+		ncmpcpp
+		mpc_cli 
+		file
+		acpi
+		groff
+		tectonic
+		zathura
+		cmatrix
+		pandoc
+		R-packages
+		grim
+		ncat
+		nmap-graphical
+		stunnel
+		glxinfo
+		wf-recorder
+		mpv
+		bemenu
+		warzone2100
+		the-powder-toy
+		multimc
+		aerc
+		wl-clipboard
+		mako
+		slurp
+		waybar
+		#virtboard
+		wallutils
+		gource
+		networkmanagerapplet
+	];
 
-  fonts = {
-    fonts = with pkgs; [
-        symbola
-	powerline-fonts
-	envypn-font
-	roboto-mono
-	source-sans-pro
-	source-code-pro
-    ];
-    enableDefaultFonts = true;
-    fontconfig.ultimate.enable = true;
-  };
+	fonts = {
+		fonts = with pkgs; [
+			symbola
+			powerline-fonts
+			envypn-font
+			roboto-mono
+			source-sans-pro
+			source-code-pro
+		];
+		enableDefaultFonts = true;
+		fontconfig.ultimate.enable = true;
+	};
 
-  # Determines the NixOS release with which your system is to be compatible.
-  # You should change this only after the release notes say you should.
-  system.stateVersion = "18.09"; # Did you read the comment?
+	# You should change this only after the release notes say you should.
+	system.stateVersion = "18.09";
 }
