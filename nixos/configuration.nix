@@ -232,7 +232,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		warzone2100
 		the-powder-toy
 		multimc
-		aerc
 		wl-clipboard
 		mako
 		slurp
@@ -241,6 +240,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		wallutils
 		gource
 		networkmanagerapplet
+		aerc
+		telnet
 	];
 
 	fonts = {
