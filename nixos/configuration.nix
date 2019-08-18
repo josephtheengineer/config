@@ -114,6 +114,11 @@ in
 		};
 	};
 
+	i18n = {
+		consoleKeyMap = "colemak";
+		defaultLocale = "en_US.UTF-8";
+	};
+
 	security.pki.certificates =		[ ''
 -----BEGIN CERTIFICATE-----
 MIIEmDCCA4CgAwIBAgIJAIn2s0rMQBBXMA0GCSqGSIb3DQEBCwUAMIGOMS0wKwYD
@@ -244,6 +249,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		networkmanagerapplet
 		aerc
 		telnet
+		pass
+		bind
 	];
 
 	fonts = {
