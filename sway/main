@@ -78,9 +78,9 @@ gaps top -20
 font pango:Noto Mono for Powerline 6
 #
 #                       border    background text      indicator child-border
-client.focused          $fg       $bg        $fg       $fg       $fg
-client.focused_inactive $fg       $bg        $fg       $bg       $bg
-client.unfocused        $fg       $bg        $fg       $bg       $bg
+client.focused          $bg       $bg        $fg       $fg       $fg
+client.focused_inactive $bg       $bg        $fg       $bg       $bg
+client.unfocused        $bg       $bg        $fg       $bg       $bg
 client.urgent           #555555   $bg        $fg       $fg       $fg
 #
 default_border normal 1

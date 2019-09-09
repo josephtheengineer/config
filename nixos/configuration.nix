@@ -41,8 +41,10 @@ in
 			allowedUDPPorts = [ 22 8888 ];
 		};
 
-		#proxy.default = "http://user:password@proxy:port/";
-		#proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+		#proxy = {
+		#	default = "socks5://localhost:8080";
+		#	noProxy = "josephtheengineer.ddns.net,127.0.0.1,localhost,internal.domain";
+		#};
 	};
 
 	hardware = {
@@ -251,6 +253,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		telnet
 		pass
 		bind
+		figlet
 	];
 
 	fonts = {
