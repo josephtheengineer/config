@@ -71,6 +71,13 @@ in
 			enable = true;
 			drivers = [ pkgs.gutenprint ];
 		};
+		#paperless = {
+		#	enable = true;
+		#	consumptionDir = "/var/spool/scans/";
+		#	extraConfig = {
+		#		PAPERLESS_CORS_ALLOWED_HOSTS="http://localhost:8080";
+		#	};
+		#};
 	};
 
 	programs = {
@@ -103,7 +110,7 @@ in
 			isNormalUser = true;
 			home = "/home/josephtheengineer";
 			description = "admin";
-			extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" ];
+			extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" "scanner" "lp" ];
 			shell = pkgs.zsh;
 			uid = 1000;
 		};
@@ -253,6 +260,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		telnet
 		pass
 		bind
+		quakespasm
+		patchelf
+		saneBackends
+		#paperless
 		figlet
 	];
 

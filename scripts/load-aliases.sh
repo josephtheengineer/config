@@ -57,6 +57,12 @@ help()
         echo ' clear'
 }
 
+paperless-server()
+{
+	paperless runserver &
+	paperless document_consumer
+}
+
 RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
@@ -86,6 +92,7 @@ alias web-browser='firefox'
 alias e='nvim'
 alias c='configure'
 alias alsamixer='alsamixer -g'
+alias scan='sudo scanimage -p --format=png --resolution=300 >/var/spool/scans/$(date +%Y%m%d%H%M%S)Z_p%04d.png'
 
 # folders
 alias school='~/workspace/josephtheengineer.ddns.net/school'
