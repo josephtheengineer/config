@@ -1,0 +1,2 @@
+set -Ceu
+pinentry-curses "$@"

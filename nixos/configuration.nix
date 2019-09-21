@@ -264,7 +264,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		patchelf
 		saneBackends
 		#paperless
-		figlet
+		figlet	
 	];
 
 	fonts = {
