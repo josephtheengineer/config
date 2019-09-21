@@ -37,8 +37,8 @@ in
 
 		# Open ports in the firewall.
 		firewall = {
-			allowedTCPPorts = [ 22 8888 ];
-			allowedUDPPorts = [ 22 8888 ];
+			allowedTCPPorts = [ 22 8888 25565 ];
+			allowedUDPPorts = [ 22 8888 25565 ];
 		};
 
 		#proxy = {
