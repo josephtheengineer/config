@@ -94,6 +94,7 @@ alias c='configure'
 alias alsamixer='alsamixer -g'
 alias scan='sudo scanimage -p --format=png --resolution=300 >/var/spool/scans/$(date +%Y%m%d%H%M%S)Z_p%04d.png'
 alias icat="kitty +kitten icat"
+alias lsblk='lsblk -o name,size,mountpoint,uuid'
 
 # folders
 alias school='~/workspace/josephtheengineer.ddns.net/school'

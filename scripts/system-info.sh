@@ -48,7 +48,7 @@ function create_bar {
 
 function server_status {
 	status="${red}OFFLINE${reset}"
-	status_command=$(timeout 2 nmap $2 -PN -p ssh | grep open) 
+	status_command=$(timeout 2 nmap $2 -6 -PN -p ssh | grep open) 
 	if [[ $status_command == "22/tcp open  ssh" ]]; then
 		status="${green}ONLINE${reset}"
 		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
@@ -178,7 +178,7 @@ fi
 # ======================= Network Status  ==============================
 
 internet_status archlinux.org
-server_status genesis josephtheengineer.ddns.net
+server_status genesis genesis.theengineer.life
 
 network_status="${red}UNAVAILABLE${reset}"
 

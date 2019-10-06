@@ -33,11 +33,11 @@ in
 
 	networking = {
 		networkmanager.enable = true;
-
+		
 		# Open ports in the firewall.
 		firewall = {
-			allowedTCPPorts = [ 22 8888 25565 ];
-			allowedUDPPorts = [ 22 8888 25565 ];
+			allowedTCPPorts = [ 13 22 8888 25565 8080 ];
+			allowedUDPPorts = [ 13 22 8888 25565 8080 ];
 		};
 
 		#proxy = {
@@ -239,7 +239,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		bemenu
 		warzone2100
 		the-powder-toy
-		multimc
 		wl-clipboard
 		mako
 		slurp
@@ -257,6 +256,11 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		saneBackends
 		#paperless
 		figlet
+		clang
+		paperless
+		gdb
+		poppler_utils
+		openssl
 	];
 
 	fonts = {
