@@ -37,8 +37,8 @@ in
 
 		# Open ports in the firewall.
 		firewall = {
-			allowedTCPPorts = [ 22 8888 ];
-			allowedUDPPorts = [ 22 8888 ];
+			allowedTCPPorts = [ 22 8888 8080 ];
+			allowedUDPPorts = [ 22 8888 8080 ];
 		};
 
 		#proxy = {
@@ -264,7 +264,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		patchelf
 		saneBackends
 		#paperless
-		figlet	
+		figlet
+		clang
 	];
 
 	fonts = {

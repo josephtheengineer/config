@@ -66,12 +66,17 @@ paperless-server()
 RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
-alias cleanup="$RUN_SCRIPT cleanup"
-
 for file in $XDG_CONFIG_HOME/scripts/*
 do
 	filename=$(basename $file .sh)
 	alias $filename="$RUN_SCRIPT $filename"
+done
+
+# projects workspace
+for file in ~/workspace/*
+do
+	filename=$(basename $file)
+	alias $filename="source ~/.config/scripts/open-project.sh $filename"
 done
 
 # sortcuts

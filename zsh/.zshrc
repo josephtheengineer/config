@@ -16,9 +16,9 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 	exit 0
 fi
 
-export PINENTRY_USER_DATA="USE_CURSES=1"
-GPG_TTY=$(tty)
-export GPG_TTY
+#export PINENTRY_USER_DATA="USE_CURSES=1"
+#GPG_TTY=$(tty)
+#export GPG_TTY
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 
