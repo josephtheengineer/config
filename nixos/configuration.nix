@@ -16,8 +16,7 @@ let
 	R-packages = rWrapper.override{ packages = with rPackages; [ rmarkdown ]; };
 in
 {
-	imports =
-		[ # Include the results of the hardware scan.
+	imports = [
 			/etc/nixos/hardware-configuration.nix
 			./local-configuration.nix
 		];
@@ -34,11 +33,11 @@ in
 
 	networking = {
 		networkmanager.enable = true;
-
+		
 		# Open ports in the firewall.
 		firewall = {
-			allowedTCPPorts = [ 22 8888 8080 ];
-			allowedUDPPorts = [ 22 8888 8080 ];
+			allowedTCPPorts = [ 13 22 8888 25565 8080 ];
+			allowedUDPPorts = [ 13 22 8888 25565 8080 ];
 		};
 
 		#proxy = {
@@ -57,6 +56,14 @@ in
 			enable = true;
 			channel = "https://nixos.org/channels/nixos-unstable";
 		};
+	};
+
+	nix = {
+		gc = {
+			automatic = true;
+			dates = "12:00";
+		};
+		autoOptimiseStore = true;
 	};
 
 	services = {
@@ -97,14 +104,6 @@ in
 		};
 	};
 
-	nix = {
-		gc = {
-			automatic = true;
-			dates = "12:00";
-		};
-		autoOptimiseStore = true;
-	};
-
 	users.users = {
 		josephtheengineer = {
 			isNormalUser = true;
@@ -112,7 +111,6 @@ in
 			description = "admin";
 			extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" "scanner" "lp" ];
 			shell = pkgs.zsh;
-			uid = 1000;
 		};
 		eco = {
 			isNormalUser = true;
@@ -163,13 +161,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 	time.timeZone = "Australia/Brisbane";
 	virtualisation.libvirtd.enable = true;
 	sound.enable = true;
-	
-	nixpkgs.config.allowUnfree = true;
-
-	# Virtualbox
-	#virtualisation.virtualbox.host.enable = true;
-	#users.extraGroups.vboxusers.members = [ "josephtheengineer" ];
-  
+	  
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -247,7 +239,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		bemenu
 		warzone2100
 		the-powder-toy
-		multimc
 		wl-clipboard
 		mako
 		slurp
@@ -266,6 +257,10 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		#paperless
 		figlet
 		clang
+		paperless
+		gdb
+		poppler_utils
+		openssl
 	];
 
 	fonts = {

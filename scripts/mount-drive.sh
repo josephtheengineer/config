@@ -62,8 +62,8 @@ function mount {
 		[[ "$mkdiryn" = y ]] && sudo mkdir -p "$mountpoint"
 	fi
 	if [[ $3 = true ]]; then
-		sudo cryptsetup luksOpen $drive ${drive#"/dev/"}
-		sudo mount /dev/mapper/${drive#"/dev/"} $mountpoint && echo "$drive mounted to $mountpoint."
+		sudo cryptsetup luksOpen $drive $(basename $mountpoint) #${drive#"/dev/"}
+		sudo mount /dev/mapper/$(basename $mountpoint) $mountpoint && echo "$drive mounted to $mountpoint."
 	else
 		sudo mount $drive $mountpoint && echo "$drive mounted to $mountpoint."
 	fi
