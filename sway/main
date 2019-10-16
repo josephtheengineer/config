@@ -1,10 +1,10 @@
 #                                ██   ██
-#   ██████ ███     ██  ██████   ░░██ ██ 
-#  ██░░░░ ░░██  █ ░██ ░░░░░░██   ░░███  
-# ░░█████  ░██ ███░██  ███████    ░██   
-#  ░░░░░██ ░████░████ ██░░░░██    ██    
-#  ██████  ███░ ░░░██░░████████  ██     
-# ░░░░░░  ░░░    ░░░  ░░░░░░░░  ░░      
+#   ██████ ███     ██  ██████   ░░██ ██
+#  ██░░░░ ░░██  █ ░██ ░░░░░░██   ░░███
+# ░░█████  ░██ ███░██  ███████    ░██
+#  ░░░░░██ ░████░████ ██░░░░██    ██
+#  ██████  ███░ ░░░██░░████████  ██
+# ░░░░░░  ░░░    ░░░  ░░░░░░░░  ░░
 
 # ~/.config/sway/config
 # man 5 sway
@@ -30,7 +30,7 @@ set $bg #00000000
 ### Output configuration
 #
 output * bg ~/.background-image fill
-#output * bg ~/media/media/pictures/kaspersky\ v3.png fill
+#output * bg /mnt/media/pictures/kaspersky\ v3.png fill
 #
 # Example configuration:
 #
@@ -148,7 +148,7 @@ default_border normal 1
     workspace 8 output $display1
     workspace 9 output $display1
     workspace 10 output $display1
-    
+
     workspace 1:F1 output $display2
     workspace 2:F2 output $display2
     workspace 3:F3 output $display2
@@ -164,11 +164,11 @@ default_border normal 1
 
     # switch to workspace
     bindsym $mod+1 exec ~/.config/scripts/workspace-manager.sh switch 1
-    bindsym $mod+2 exec ~/.config/scripts/workspace-manager.sh switch 2 
+    bindsym $mod+2 exec ~/.config/scripts/workspace-manager.sh switch 2
     bindsym $mod+3 exec ~/.config/scripts/workspace-manager.sh switch 3
     bindsym $mod+4 exec ~/.config/scripts/workspace-manager.sh switch 4
     bindsym $mod+5 exec ~/.config/scripts/workspace-manager.sh switch 5
-    bindsym $mod+6 exec ~/.config/scripts/workspace-manager.sh switch 6 
+    bindsym $mod+6 exec ~/.config/scripts/workspace-manager.sh switch 6
     bindsym $mod+7 exec ~/.config/scripts/workspace-manager.sh switch 7
     bindsym $mod+8 exec ~/.config/scripts/workspace-manager.sh switch 8
     bindsym $mod+9 exec ~/.config/scripts/workspace-manager.sh switch 9
@@ -294,7 +294,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command ~/.config/sway/status.sh
+    status_command ~/.config/scripts/status.sh
 
     colors {
         statusline #ffffff

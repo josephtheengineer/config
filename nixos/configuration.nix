@@ -172,7 +172,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		neofetch
 		gotop
 		gimp
-		nodejs
 		arc-theme
 		gtk-engine-murrine
 		arc-icon-theme
@@ -181,12 +180,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		zsh
 		git
 		pavucontrol
-		ranger
-		firefox
 		unzip
-		nix-prefetch-git
 		zip
-		stdenv
 		bcache-tools
 		weechat
 		toilet
@@ -211,7 +206,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		w3m
 		gnumake
 		youtube-dl
-		tigervnc
 		conky
 		kitty
 		fortune
@@ -254,13 +248,14 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		quakespasm
 		patchelf
 		saneBackends
-		#paperless
 		figlet
 		clang
 		paperless
 		gdb
 		poppler_utils
-		openssl
+		lf
+		fzf
+		lutris-free
 	];
 
 	fonts = {
