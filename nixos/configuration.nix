@@ -256,6 +256,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		lf
 		fzf
 		lutris-free
+		multimc
 	];
 
 	fonts = {

@@ -48,7 +48,7 @@ function create_bar {
 
 function server_status {
 	status="${red}OFFLINE${reset}"
-	status_command=$(timeout 2 nmap $2 -6 -PN -p ssh | grep open) 
+	status_command=$(timeout 2 nmap $2 -PN -p ssh | grep open)
 	if [[ $status_command == "22/tcp open  ssh" ]]; then
 		status="${green}ONLINE${reset}"
 		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
@@ -71,7 +71,7 @@ function internet_status {
 	ping_command=$(ping -c 1 -w 1 $1)
 
 	# ping -c 1 -W 1 $1 > /dev/null && internetq_status="${green}ONLINE${reset}" > /dev/null
-		
+
 	if grep -q "time=" <<<"$ping_command"; then
     		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
 		internetq_status="${green}ONLINE${reset}"
@@ -84,10 +84,10 @@ function internet_status {
 		echo "OFFLINE" >> ~/.local/share/system-status/$1-uptime
 		internet_status="OFFLINE"
 	fi
-	
+
 	online=$(grep -r "ONLINE" ~/.local/share/system-status/$1-uptime | wc -l)
 	offline=$(grep -r "OFFLINE" ~/.local/share/system-status/$1-uptime | wc -l)
-	
+
 	create_bar $online $offline
 
 	internet_info=("     internet: $internetq_status [$bar]$percent% uptime")
@@ -124,7 +124,7 @@ output "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED!"
 output "$(uptime | awk '{print $1, $2}') $(date)"
 
 # ========================== System Version =============================
-          
+
 if [[ true ]]; then
         output "${white} System Version: ${green}OK${reset}"
 fi
@@ -133,21 +133,21 @@ fi
 
 if [[ true ]]; then
         output "${white} Config Version: ${green}OK${reset}"
-fi    
+fi
 
 # ============================ Power ====================================
 
 bat_status=$(acpi -i 2>/dev/null)
 
 bat_percent=$(echo $bat_status | sed -n 1p | awk '{print $4}' | rev | cut -c 3- | rev)
-bat_name=$(echo $bat_status | sed -n 1p | awk '{print $1, $2}')   
+bat_name=$(echo $bat_status | sed -n 1p | awk '{print $1, $2}')
 bat_charging_status=$(echo $bat_status | sed -n 1p | awk '{print $3}')
 bat_remaining=$(echo $bat_status | sed -n 1p | awk '{print $5}')
 
 power_status="${red}Low${reset}"
 
 if [ -z "$bat_status" ]; then
-	power_status="${green}OK${reset}"	
+	power_status="${green}OK${reset}"
 else
 	if [[ $bat_status > 20 ]]; then
 		if [[ $bat_charging_status = "Discharging," ]]; then
