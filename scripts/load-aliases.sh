@@ -3,16 +3,6 @@ cd-ls()
         cd $1 && ls -a
 }
 
-hidden-ls()
-{
-        if [ -f .hidden ]; then
-                #ls | sed -e 's/Desktop//g'
-                #ls | grep -v "Desktop" #sed -e 's/\n//g'
-                #ls | grep -v '^[D]'
-                ls -I {Desktop,workspace}*
-        fi
-}
-
 git-sync()
 {
         git add .
@@ -79,6 +69,12 @@ do
 	alias $filename="source ~/.config/scripts/open-project.sh $filename"
 done
 
+# projects workspace
+for file in $PLAN9/bin/*
+do
+	alias $file="$PLAN9/bin/$filename"
+done
+
 # sortcuts
 alias network='nmtui'
 alias update='sudo nixos-rebuild switch --upgrade --repair --keep-going'
@@ -101,6 +97,9 @@ alias scan='sudo scanimage -p --format=png --resolution=300 >/var/spool/scans/$(
 alias reload-agent='gpg-connect-agent reloadagent /bye'
 alias icat="kitty +kitten icat"
 alias lsblk='lsblk -o name,size,mountpoint,uuid'
+
+# Linux commands
+#alias cat="$PLAN9/bin/cat"
 
 # folders
 alias school='~/workspace/josephtheengineer.ddns.net/school'

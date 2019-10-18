@@ -39,6 +39,10 @@ in
 			allowedTCPPorts = [ 13 22 8888 25565 8080 ];
 			allowedUDPPorts = [ 13 22 8888 25565 8080 ];
 		};
+		
+		hosts = {
+			"202.137.162.57" = [ "school" ];
+		};
 
 		#proxy = {
 		#	default = "socks5://localhost:8080";
@@ -260,6 +264,9 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		gdb
 		poppler_utils
 		openssl
+		multimc
+		plan9port
+		links
 	];
 
 	fonts = {

@@ -28,6 +28,17 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 #export XDG_RUNTIME_DIR="/run/user/$USER"
+
+# Declare XDG-FHS
+#export XDG_CACHE_HOME="~/.local/var/cache"
+#export XDG_CONFIG_HOME="~/.local/etc"
+#export XDG_DATA_HOME="~/.local/share"
+#export XDG_STATE_HOME="~/.local/var/lib"
+#export XDG_LIB_HOME="~/.local/lib"
+#export XDG_LOG_HOME="~/.local/var/log"
+
+
+#export XDG_RUNTIME_DIR="/run/user/$USER"
 export EDITOR="nvim"
 
 compinit -d "$XDG_DATA_HOME/zsh/zcompdump"
