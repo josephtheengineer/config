@@ -1,11 +1,11 @@
-#           ██                         
-#          ░░                          
+#           ██
+#          ░░
 #  ███████  ██ ██   ██  ██████   ██████
-# ░░██░░░██░██░░██ ██  ██░░░░██ ██░░░░ 
-#  ░██  ░██░██ ░░███  ░██   ░██░░█████ 
+# ░░██░░░██░██░░██ ██  ██░░░░██ ██░░░░
+#  ░██  ░██░██ ░░███  ░██   ░██░░█████
 #  ░██  ░██░██  ██░██ ░██   ░██ ░░░░░██
-#  ███  ░██░██ ██ ░░██░░██████  ██████ 
-# ░░░   ░░ ░░ ░░   ░░  ░░░░░░  ░░░░░░  
+#  ███  ░██░██ ██ ░░██░░██████  ██████
+# ░░░   ░░ ░░ ░░   ░░  ░░░░░░  ░░░░░░
 
 # /etc/nixos/configuration.nix
 # man configuration.nix // nixos-help
@@ -33,13 +33,13 @@ in
 
 	networking = {
 		networkmanager.enable = true;
-		
+
 		# Open ports in the firewall.
 		firewall = {
 			allowedTCPPorts = [ 13 22 8888 25565 8080 ];
 			allowedUDPPorts = [ 13 22 8888 25565 8080 ];
 		};
-		
+
 		hosts = {
 			"202.137.162.57" = [ "school" ];
 		};
@@ -159,13 +159,13 @@ FpD1xWRghELBKaJAbGKNmZa5+bcypaYRoj7G8m2Ko0xjx4/xfC2H8yrZEL8ID8Ke
 cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 -----END CERTIFICATE-----
 
-				'' 
+				''
 				];
 
 	time.timeZone = "Australia/Brisbane";
 	virtualisation.libvirtd.enable = true;
 	sound.enable = true;
-	  
+
 	# List packages installed in system profile. To search, run:
 	# $ nix search wget
 	environment.systemPackages = with pkgs; [
@@ -176,7 +176,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		neofetch
 		gotop
 		gimp
-		nodejs
 		arc-theme
 		gtk-engine-murrine
 		arc-icon-theme
@@ -185,11 +184,8 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		zsh
 		git
 		pavucontrol
-		ranger
 		unzip
-		nix-prefetch-git
 		zip
-		stdenv
 		bcache-tools
 		weechat
 		toilet
@@ -214,7 +210,6 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		w3m
 		gnumake
 		youtube-dl
-		tigervnc
 		conky
 		kitty
 		fortune
@@ -223,7 +218,7 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		gnupg
 		mpd
 		ncmpcpp
-		mpc_cli 
+		mpc_cli
 		file
 		acpi
 		groff
@@ -257,16 +252,16 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 		quakespasm
 		patchelf
 		saneBackends
-		#paperless
 		figlet
 		clang
 		paperless
 		gdb
 		poppler_utils
-		openssl
-		multimc
 		plan9port
 		links
+		lf
+		fzf
+		multimc
 	];
 
 	fonts = {

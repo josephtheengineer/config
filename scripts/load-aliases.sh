@@ -1,3 +1,23 @@
+# You may also like to assign a key to this command:
+#
+#     bind '"\C-o":"lfcd\C-m"'  # bash
+#     bindkey -s '^o' 'lfcd\n'  # zsh
+#
+
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
 cd-ls()
 {
         cd $1 && ls -a
@@ -53,6 +73,11 @@ paperless-server()
 	paperless document_consumer
 }
 
+function rsyncmv
+{
+	rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files "$@" && rm -rf $1
+}
+
 RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
@@ -93,10 +118,12 @@ alias web-browser='firefox'
 alias e='nvim'
 alias c='configure'
 alias alsamixer='alsamixer -g'
-alias scan='sudo scanimage -p --format=png --resolution=300 >/var/spool/scans/$(date +%Y%m%d%H%M%S)Z_p%04d.png'
 alias reload-agent='gpg-connect-agent reloadagent /bye'
 alias icat="kitty +kitten icat"
 alias lsblk='lsblk -o name,size,mountpoint,uuid'
+alias cp="rsync --partial --progress --append --rsh=ssh -r -h"
+alias mv="rsyncmv"
+alias ls-size="ls --human-readable --size -1 -S --classify"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"
