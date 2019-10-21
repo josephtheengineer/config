@@ -78,6 +78,16 @@ function rsyncmv
 	rsync --partial --progress --append --rsh=ssh -r -h --remove-sent-files "$@" && rm -rf $1
 }
 
+function cp-progress
+{
+	cp $@ & progress -mp $!
+}
+
+function mv-progress
+{
+	mv $@ & progress -mp $!
+}
+
 RUN_SCRIPT="$XDG_CONFIG_HOME/scripts/run-script.sh"
 
 # scripts
@@ -121,8 +131,10 @@ alias alsamixer='alsamixer -g'
 alias reload-agent='gpg-connect-agent reloadagent /bye'
 alias icat="kitty +kitten icat"
 alias lsblk='lsblk -o name,size,mountpoint,uuid'
-alias cp="rsync --partial --progress --append --rsh=ssh -r -h"
-alias mv="rsyncmv"
+alias rcp="rsync --partial --progress --append --rsh=ssh -r -h"
+alias rmv="rsyncmv"
+#alias cp="cp-progress"
+#alias mv="mv-progress"
 alias ls-size="ls --human-readable --size -1 -S --classify"
 
 # Linux commands
