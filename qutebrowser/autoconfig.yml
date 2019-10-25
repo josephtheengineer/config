@@ -8,6 +8,8 @@ config_version: 2
 settings:
   content.persistent_storage:
     global: ask
+  content.proxy:
+    global: socks://localhost:8080
   content.register_protocol_handler:
     global: ask
   downloads.location.directory:
