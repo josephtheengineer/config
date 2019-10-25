@@ -12,7 +12,7 @@
 ### Variables
 #
 # Logo key
-set $mod Super_L
+set $mod Mod4
 # Home row direction keys
 set $left h
 set $down j
@@ -91,9 +91,9 @@ default_border normal 1
 # Basics:
 #
 	mode "insert" {
-		bindsym --release $mod mode "default"
+		bindsym $mod mode "default"
 	}
-	bindsym --release $mod mode "insert"
+	bindsym $mod+minus mode "insert"
 
 	# start a terminal
 	bindsym Return exec $term

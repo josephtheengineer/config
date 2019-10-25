@@ -272,9 +272,14 @@ cvYrtmo4ql4TaI9ssx31VlCAgaK0XEdlDZ6R+A==
 			roboto-mono
 			source-sans-pro
 			source-code-pro
+			noto-fonts-emoji
+			twitter-color-emoji
 		];
 		enableDefaultFonts = true;
-		fontconfig.ultimate.enable = true;
+		#fontconfig = {
+		#	ultimate.enable = true;
+		#	#defaultFonts.emoji = [ "Twitter Color Emoji" ];
+		#};
 	};
 
 	# You should change this only after the release notes say you should.
