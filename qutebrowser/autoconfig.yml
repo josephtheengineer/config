@@ -6,10 +6,14 @@
 
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      normal:
+        zl: spawn --userscript qute-pass
   content.persistent_storage:
     global: ask
   content.proxy:
-    global: socks://localhost:8080
+    global: system
   content.register_protocol_handler:
     global: ask
   downloads.location.directory:

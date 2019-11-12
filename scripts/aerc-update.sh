@@ -15,6 +15,6 @@ echo "
 # against (non-case-sensitive) and a comma, e.g. subject,text will match a
 # subject which contains "text". Use header,~regex to match against a regex.
 subject,~^\[PATCH=awk -f $AERC_LOC/filters/hldiff
-text/html=$AERC_LOC/filters/.html-wrapped
+text/html=html
 text/*=awk -f $AERC_LOC/filters/plaintext
-image/*=catimg -w $(tput cols) -" >> ~/.config/aerc/aerc.conf
+image/*=kitty +kitten icat" >> ~/.config/aerc/aerc.conf

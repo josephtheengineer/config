@@ -14,11 +14,17 @@
 with pkgs;
 let
 	R-packages = rWrapper.override{ packages = with rPackages; [ rmarkdown ]; };
+	home-manager = builtins.fetchGit {
+		url = "https://github.com/rycee/home-manager.git";
+		rev = "dd94a849df69fe62fe2cb23a74c2b9330f1189ed"; # CHANGEME 
+		ref = "release-18.09";
+	};
 in
 {
 	imports = [
 			/etc/nixos/hardware-configuration.nix
 			./local-configuration.nix
+			"${home-manager}/nixos"
 		];
 
 	boot = {
@@ -53,6 +59,9 @@ in
 	hardware = {
 		pulseaudio.enable = true;
 		bluetooth.enable = true;
+		# Steam
+		opengl.driSupport32Bit = true;
+  		pulseaudio.support32Bit = true;
 	};
 
 	system = {
@@ -92,6 +101,7 @@ in
 	};
 
 	programs = {
+		home-manager.enable = true;
 		dconf.enable = true;
 		light.enable = true;
 		sway.enable = true;
@@ -102,7 +112,7 @@ in
 			ohMyZsh.theme = "agnoster";
 			promptInit = ''
 				export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
-				export ZDOTDIR="/home/josephtheengineer/.config/zsh"
+				export ZDOTDIR="/ect/zdotdir"
 			'';
 			syntaxHighlighting.enable = true;
 		};
