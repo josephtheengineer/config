@@ -8,7 +8,7 @@ function main # args
 	resolution="300"
 
 	check "$@"
-	
+
 	if [[ $tags == *" "* ]]; then
 		echo "Error: Tags field contains a space"
 		exit 1
@@ -23,8 +23,8 @@ function check # args
 {
 	local OPTIND opt
 	while getopts ":d:c:n:t:f:r:h" opt; do
-		if [[ $OPTARG == *"-"* ]]; then         
-			echo "Error: $opt contains '-'"         
+		if [[ $OPTARG == *"-"* ]]; then
+			echo "Error: $opt contains '-'"
 			exit 1
 		fi
 		case $opt in
@@ -42,7 +42,7 @@ function check # args
 
 function help
 {
-	echo " -d (date) default = date +%Y%m%d%H%M%S Z        
+	echo " -d (date) default = date +%Y%m%d%H%M%S Z
 	-c (correspondent) default = \$USER
 	-n (name) default = scan
 	-t (tags)
