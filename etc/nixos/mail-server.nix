@@ -50,4 +50,5 @@
 		certificateScheme = 3;
 
 		# Enable IMAP and POP3
+	};
 }
