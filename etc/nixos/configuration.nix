@@ -56,6 +56,8 @@
 		export PGPPATH=$GNUPGHOME
 		export PYTHONSTARTUP=$LIB/python/startup.py
 		export ZDOTDIR=$ETC/zsh
+		export PULSE_SOURCE=$ETC/pulse/client.conf
+		export PULSE_COOKIE=$CACHE/pulse/cookie
 		";
 	};
 
@@ -90,7 +92,7 @@
 	services = {
 		openssh = {
 			enable = true;
-			ports = [ 22 ];
+			ports = [ 22 8080 ];
 			permitRootLogin = "no";
 			challengeResponseAuthentication = false;
 			passwordAuthentication = false;
@@ -110,20 +112,24 @@
 		};
 	};
 
-	users.users = {
-		josephtheengineer = {
-			isNormalUser = true;
-			home = "/home/josephtheengineer";
-			description = "admin";
-			extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" "video" "scanner" "lp" ];
-			shell = pkgs.zsh;
-		};
-		eco = {
-			isNormalUser = true;
-			home = "/home/eco";
-			description = "awesome";
-			extraGroups = [];
-			shell = pkgs.zsh;
+	users = {
+		groups.website-dev = {};
+		users = {
+			josephtheengineer = {
+				isNormalUser = true;
+				home = "/home/josephtheengineer";
+				description = "admin";
+				extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" 
+					"video" "scanner" "lp" "website-dev" "cdrom" ];
+				shell = pkgs.zsh;
+			};
+			eco = {
+				isNormalUser = true;
+				home = "/home/eco";
+				description = "awesome";
+				extraGroups = [];
+				shell = pkgs.zsh;
+			};
 		};
 	};
 
@@ -153,6 +159,7 @@
 		lvm2
 		parted
 		networkmanager
+		lolcat
 	];
 
 	fonts = {

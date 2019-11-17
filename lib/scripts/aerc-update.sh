@@ -1,6 +1,6 @@
 AERC_LOC=$(find /nix/store -name aerc | grep "/share/aerc" | head -1)
 
-cat ~/.config/aerc/main.conf > ~/.config/aerc/aerc.conf
+cat $ETC/aerc/main.conf > $ETC/aerc/aerc.conf
 
 echo "
 [filters]
@@ -17,4 +17,4 @@ echo "
 subject,~^\[PATCH=awk -f $AERC_LOC/filters/hldiff
 text/html=html
 text/*=awk -f $AERC_LOC/filters/plaintext
-image/*=kitty +kitten icat" >> ~/.config/aerc/aerc.conf
+image/*=kitty +kitten icat" >> $ETC/aerc/aerc.conf

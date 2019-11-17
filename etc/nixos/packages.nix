@@ -11,7 +11,7 @@ in
 			acpi
 			file
 			glxinfo
-		
+
 		# Tools
 			unzip
 			zip
@@ -20,23 +20,22 @@ in
 			patchelf
 			fzf # Full screen fuzzy finder
 			calcurse # Full screen calender and to-do list
-		
+
 		# Formatting
 			groff
 			tectonic
 			pandoc
 			R-packages
-		
+
 		# Fun
 			figlet
 			toilet
-			lolcat
 			fortune
 			cowsay
 			bsdgames # Full screen
 			cmatrix # Full screen
 
-		# Networking
+		# Networking / Internet
 			iw # Wireless config
 			iwd # Internet wireless daemon
 			ppp # Point to point protocal
@@ -58,7 +57,7 @@ in
 
 		# Libraries
 			adoptopenjdk-bin
-		
+
 		# Hardware
 			system-config-printer
 			sane-backends # Scanner

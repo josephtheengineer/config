@@ -118,21 +118,29 @@ KERNEL_VERSION=$(uname -a | awk '{print $3}')
 OS_VERSION=$(sed -n -e 6p /etc/*release* | awk '{gsub("PRETTY_NAME=", "");print}' | awk '{gsub("\"", "");print}')
 SCRIPT="$XDG_CONFIG_HOME/scripts/"
 
-output "Welcome to Kernel $KERNEL_VERSION, $OS_VERSION."
+output "Welcome to Kernel $KERNEL_VERSION, $(echo $OS_VERSION | awk '{print $1, $2}')."
 output "UNAUTHORIZED ACCESS TO THIS DEVICE IS PROHIBITED!"
 
-output "$(uptime | awk '{print $1, $2}') $(date)"
+output "${white}Up:${reset} $(uptime | awk '{print $3, $4, $5}') ${white}Time: ${reset}$(date)"
 
 # ========================== System Version =============================
 
 if [[ true ]]; then
-        output "${white} System Version: ${green}OK${reset}"
+	output "${white} System Version: ${green}OK${reset} CODE: $(echo $OS_VERSION | awk '{print $3}' | tr --delete "()")"
 fi
 
 # ========================= Config Version ==============================
 
-if [[ true ]]; then
+local_status=$(git -C local remote show origin | sed -n 10p | awk '{print $5}' | tr --delete "()")
+#git_status=
+
+#if [[ -z $(git -C local status --porcelain=v1) ]]
+
+
+if [[ "$local_status" = "up" ]]; then
         output "${white} Config Version: ${green}OK${reset}"
+else
+	output "${white}" Config Version: ${yellow}OUTDATED${reset}
 fi
 
 # ============================ Power ====================================
