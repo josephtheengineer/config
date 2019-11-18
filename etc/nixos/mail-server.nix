@@ -47,7 +47,7 @@
 
 		# Use Let's Encrypt certs. Note that this needs to set up a stripped down
 		# nginx and opens port 80.
-		certificateScheme = 2;
+		certificateScheme = 3;
 
 		# Enable IMAP and POP3
 		enableImap = true;
