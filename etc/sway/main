@@ -167,7 +167,7 @@ default_border normal 1
     workspace 9:F9 output $display2
     workspace 10:F10 output $display2
     workspace 11:F11 output $display2
-    workspace 12:F11 output $display2
+    workspace 12:F12 output $display2
 
     # switch to workspace
     bindsym 1 exec $LIB/scripts/workspace-manager.sh switch 1
