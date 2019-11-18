@@ -20,6 +20,7 @@ fi
 export GPG_TTY=$(tty)
 gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpg-connect-agent updatestartuptty /bye # Fix GPG ssh login
 
 export MPD_HOST=/run/mpd/socket
 export EDITOR="nvim"
