@@ -28,7 +28,7 @@
 
 		# Networking / Internet
 			qutebrowser
-			networkmanaperapplet
+			networkmanagerapplet
 
 		# Multimedia
 			gimp
