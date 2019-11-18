@@ -50,5 +50,14 @@
 		certificateScheme = 3;
 
 		# Enable IMAP and POP3
+		enableImap = true;
+		enablePop3 = true;
+		enableImapSsl = true;
+		enablePop3Ssl = true;
+
+		# Enable the ManageSieve protocol
+		enableManageSieve = true;
+
+		virusScanning = false;
 	};
 }
