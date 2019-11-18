@@ -15,6 +15,7 @@ lib/Rocket League
 lib/lesshist
 lib/lesshisQ
 lib/recently-used.xbel
+lib/gnupg/gpg-agent.conf
 
 lib/gnupg/private-keys-v1.d
 lib/gnupg/openpgp-revocs.d
