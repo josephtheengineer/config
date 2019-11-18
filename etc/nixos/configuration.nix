@@ -159,7 +159,9 @@
 		lvm2
 		parted
 		networkmanager
+		kitty
 		lolcat
+		toilet
 	];
 
 	fonts = {

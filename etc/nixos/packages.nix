@@ -29,7 +29,6 @@ in
 
 		# Fun
 			figlet
-			toilet
 			fortune
 			cowsay
 			bsdgames # Full screen
