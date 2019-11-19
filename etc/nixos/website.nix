@@ -5,13 +5,13 @@
  		enable = true;
  		statusPage = true;
  		virtualHosts."www.theengineer.life" = {
-			#addSSL = true;
+			addSSL = true;
 			enableACME = true;
 			root = "/srv/www/theengineer.life";
 			#listen = [ { addr = "*"; port = 8787; } ];
 		};
-		virtualHosts."genesis.theengineer.life" = {
-			globalRedirect = "www.theengineer.life";
-		};
+		#virtualHosts."www.theengineer.life" = {
+		#	globalRedirect = "genesis.theengineer.life";
+		#};
 	};
 }
