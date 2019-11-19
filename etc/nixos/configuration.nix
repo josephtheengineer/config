@@ -166,6 +166,7 @@
 		kitty
 		lolcat
 		toilet
+		nmap
 	];
 
 	fonts = {
