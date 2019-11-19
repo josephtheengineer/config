@@ -100,7 +100,7 @@ default_border normal 1
 	bindsym Return exec $term
 
 	# kill focused window
-	bindsym q kill
+	bindsym Shift+q kill
 
 	# start your launcher
 	bindsym space exec $menu
