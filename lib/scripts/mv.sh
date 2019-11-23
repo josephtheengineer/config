@@ -7,13 +7,13 @@ function main
 
 	echo "Preparing to move: "
 	if [[ "$arg" = true ]]; then
-		if [ -d $2 ]; then
+		if [ -d "$2" ]; then
 			echo "$(tree -aC $2)"
 		else
 			echo $2
 		fi
 	else
-		if [ -d $1 ]; then
+		if [ -d "$1" ]; then
 			echo "$(tree -aC $1)"
 		else
 			echo $1
@@ -27,9 +27,9 @@ function main
 			return 1
 			;;
 		*)
-			mv $@ & progress -mp $!
+			mv "$@" & progress -mp $!
 			;;
 	esac
 }
 
-main $@
+main "$@"
