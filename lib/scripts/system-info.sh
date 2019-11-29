@@ -75,20 +75,20 @@ function internet_status {
 	# ping -c 1 -W 1 $1 > /dev/null && internetq_status="${green}ONLINE${reset}" > /dev/null
 
 	if grep -q "time=" <<<"$ping_command"; then
-    		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+    		echo "ONLINE" >> $LIB/system-status/$1-uptime
 		internetq_status="${green}ONLINE${reset}"
 		internet_status="ONLINE"
 	elif grep -q "Packet filtered" <<<"$ping_command"; then
-		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "ONLINE" >> $LIB/system-status/$1-uptime
 		internetq_status="${yellow}FILTERED${reset}"
 		internet_status="FILTERED"
 	else
-		echo "OFFLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "OFFLINE" >> $LIB/system-status/$1-uptime
 		internet_status="OFFLINE"
 	fi
 
-	online=$(grep -r "ONLINE" ~/.local/share/system-status/$1-uptime | wc -l)
-	offline=$(grep -r "OFFLINE" ~/.local/share/system-status/$1-uptime | wc -l)
+	online=$(grep -r "ONLINE" $LIB/system-status/$1-uptime | wc -l)
+	offline=$(grep -r "OFFLINE" $LIB/system-status/$1-uptime | wc -l)
 
 	create_bar $online $offline
 
