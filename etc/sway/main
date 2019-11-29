@@ -330,7 +330,7 @@ bindsym Ctrl+Up resize grow height 5 px or 5 ppt
 bindsym Ctrl+Down resize shrink height 5 px or 5 ppt
 bindsym Ctrl+Left resize grow width 5 px or 5 ppt
 
-bindsym Print exec grim ~/desktop/screenshot.png
+bindsym Print exec grim ~/desktop/screenshots/$(date +'%Y-%m-%d_%H:%M:%S').png
 
 # --- Assignment to Workspace -- #
 for_window [class="uplink"] move to workspace 1
