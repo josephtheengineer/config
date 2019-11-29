@@ -4,6 +4,7 @@
 etc/sway/config
 etc/aerc/aerc.conf
 etc/godot/projects
+etc/configstore
 
 lib/zsh/history
 lib/nvim
