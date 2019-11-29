@@ -4,6 +4,8 @@
 etc/sway/config
 etc/aerc/aerc.conf
 etc/godot/projects
+etc/qutebrowser/qsettings/QtProject.conf
+etc/pavucontrol.ini
 etc/configstore
 
 lib/zsh/history
@@ -17,6 +19,7 @@ lib/lesshist
 lib/lesshisQ
 lib/recently-used.xbel
 lib/gnupg/gpg-agent.conf
+lib/system-status
 
 lib/gnupg/private-keys-v1.d
 lib/gnupg/openpgp-revocs.d
@@ -33,4 +36,3 @@ var/log
 etc/pulse
 
 lib/gnupg/private-keys-v1.d
-
