@@ -20,6 +20,7 @@ lib/lesshisQ
 lib/recently-used.xbel
 lib/gnupg/gpg-agent.conf
 lib/system-status
+lib/zathura/
 
 lib/gnupg/private-keys-v1.d
 lib/gnupg/openpgp-revocs.d
