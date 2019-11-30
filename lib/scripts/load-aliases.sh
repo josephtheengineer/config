@@ -136,6 +136,7 @@ alias rmv="rsyncmv"
 #alias cp="cp-progress"
 #alias mv="mv-progress"
 alias ls-size="ls --human-readable --size -1 -S --classify"
+alias clear-swap="sudo swapoff -a && sudo swapon -a"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"
