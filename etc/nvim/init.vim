@@ -24,7 +24,6 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/calendar.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neco-syntax'
 Plug 'fszymanski/deoplete-emoji'
