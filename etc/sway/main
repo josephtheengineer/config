@@ -103,7 +103,10 @@ default_border normal 1
 	bindsym Shift+q kill
 
 	# start your launcher
-	bindsym space exec $menu
+	mode "launch" {
+		bindsym Escape mode "default"; exec pkill rofi
+	}
+	bindsym space mode "launch"; exec $menu
 
 	# Drag floating windows by holding down $mod and left mouse button.
 	# Resize them with right mouse button + $mod.
