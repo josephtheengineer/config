@@ -1,11 +1,13 @@
+#! /usr/bin/env bash
+
 source $LIB/scripts/terminal-colors.sh
 
-if [ ! -d ~/.local/share/system-status/ ]; then
-  mkdir ~/.local/share/system-status
+if [ ! -d $LIB/system-status/ ]; then
+  mkdir $LIB/system-status
 fi
 
 num=0
-art=$(toilet -d $LIB/figlet-fonts -f Big.flf $(echo $HOSTNAME) | grep -v -e '^[[:space:]]*$')
+art=$(toilet -d $LIB/figlet-fonts -f Big.flf $(hostname) | grep -v -e '^[[:space:]]*$')
 readarray -t art_array <<<"$art"
 declare -a info
 
@@ -51,15 +53,15 @@ function server_status {
 	status_command=$(timeout 2 nmap $2 -PN -p ssh | grep open)
 	if [[ $status_command == "22/tcp open  ssh" ]]; then
 		status="${green}ONLINE${reset}"
-		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "ONLINE" >> $LIB/system-status/$1-uptime
 		genesis_status="ONLINE"
 	else
-		echo "OFFLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "OFFLINE" >> $LIB/system-status/$1-uptime
 		genesis_status="OFFLINE"
 	fi
 
-	online=$(grep -r "ONLINE" ~/.local/share/system-status/$1-uptime | wc -l)
-	offline=$(grep -r "OFFLINE" ~/.local/share/system-status/$1-uptime | wc -l)
+	online=$(grep -r "ONLINE" $LIB/system-status/$1-uptime | wc -l)
+	offline=$(grep -r "OFFLINE" $LIB/system-status/$1-uptime | wc -l)
 
 	create_bar $online $offline
 
@@ -73,20 +75,20 @@ function internet_status {
 	# ping -c 1 -W 1 $1 > /dev/null && internetq_status="${green}ONLINE${reset}" > /dev/null
 
 	if grep -q "time=" <<<"$ping_command"; then
-    		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+    		echo "ONLINE" >> $LIB/system-status/$1-uptime
 		internetq_status="${green}ONLINE${reset}"
 		internet_status="ONLINE"
 	elif grep -q "Packet filtered" <<<"$ping_command"; then
-		echo "ONLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "ONLINE" >> $LIB/system-status/$1-uptime
 		internetq_status="${yellow}FILTERED${reset}"
 		internet_status="FILTERED"
 	else
-		echo "OFFLINE" >> ~/.local/share/system-status/$1-uptime
+		echo "OFFLINE" >> $LIB/system-status/$1-uptime
 		internet_status="OFFLINE"
 	fi
 
-	online=$(grep -r "ONLINE" ~/.local/share/system-status/$1-uptime | wc -l)
-	offline=$(grep -r "OFFLINE" ~/.local/share/system-status/$1-uptime | wc -l)
+	online=$(grep -r "ONLINE" $LIB/system-status/$1-uptime | wc -l)
+	offline=$(grep -r "OFFLINE" $LIB/system-status/$1-uptime | wc -l)
 
 	create_bar $online $offline
 
@@ -211,7 +213,7 @@ output "${white}Services Status:${reset}"
 
 infinity_status="${red}Inactive${reset}"
 
-if ps ax | grep -v grep | grep "sh .config/scripts/infinity.sh" > /dev/null; then
+if ps ax | grep -v grep | grep "sh $LIB/scripts/infinity.sh" > /dev/null; then
 	infinity_status="${green}Active${reset}"
 fi
 

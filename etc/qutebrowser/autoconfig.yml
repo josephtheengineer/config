@@ -10,6 +10,8 @@ settings:
     global:
       normal:
         zl: spawn --userscript qute-pass
+  content.media_capture:
+    https://discordapp.com: true
   content.persistent_storage:
     global: ask
   content.proxy:

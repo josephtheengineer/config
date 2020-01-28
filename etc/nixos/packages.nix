@@ -21,11 +21,12 @@ in
 			fzf # Full screen fuzzy finder
 			calcurse # Full screen calender and to-do list
 
-		# Formatting
+		# Formatting / Storage
 			groff
 			tectonic
 			pandoc
 			R-packages
+			ntfs3g
 
 		# Fun
 			figlet
@@ -47,6 +48,8 @@ in
 			w3m # Full screen web browser
 			links # Full screen web browser
 			aerc # Full screen mail client
+			linux-pam
+			tor
 
 		# Multimedia
 			ffmpeg

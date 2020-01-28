@@ -24,7 +24,6 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/calendar.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neco-syntax'
 Plug 'fszymanski/deoplete-emoji'
@@ -91,7 +90,8 @@ let g:deoplete#enable_at_startup = 1
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufRead,BufNewFile ~/.config/sway/* set filetype=i3config
 	autocmd BufRead,BufNewFile *.gd set filetype=gdscript3
-	autocmd BufRead,BufNewFile *.hbs set filetype=html
+	autocmd BufRead,BufNewFile *.ejs,*.handlebars,*.hbs set filetype=html
+	autocmd BufRead,BufNewFile *.table set nowrap
 
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e

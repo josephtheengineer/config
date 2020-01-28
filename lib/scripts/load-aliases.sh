@@ -32,8 +32,8 @@ git-sync()
 
 install-font()
 {
-        cp -r $1 ~/.local/share/fonts/
-        ls ~/.local/share/fonts
+        cp -r $1 $LIB/fonts/
+        ls $LIB/fonts
 }
 
 set-wallpaper()
@@ -136,6 +136,8 @@ alias rmv="rsyncmv"
 #alias cp="cp-progress"
 #alias mv="mv-progress"
 alias ls-size="ls --human-readable --size -1 -S --classify"
+alias clear-swap="sudo swapoff -a && sudo swapon -a"
+alias find-gateway="route -n | grep 'UG[ \t]' | awk '{print $2}'"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"
