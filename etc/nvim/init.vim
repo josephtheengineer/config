@@ -91,6 +91,7 @@ let g:deoplete#enable_at_startup = 1
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufRead,BufNewFile ~/.config/sway/* set filetype=i3config
 	autocmd BufRead,BufNewFile *.gd set filetype=gdscript3
+	autocmd BufRead,BufNewFile *.hbs set filetype=html
 
 " Automatically deletes all trailing whitespace on save.
 	autocmd BufWritePre * %s/\s\+$//e

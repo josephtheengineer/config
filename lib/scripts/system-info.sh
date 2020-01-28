@@ -131,17 +131,17 @@ fi
 
 # ========================= Config Version ==============================
 
-local_status=$(git -C local remote show origin | sed -n 10p | awk '{print $5}' | tr --delete "()")
+#local_status=$(git -C local remote show origin | sed -n 10p | awk '{print $5}' | tr --delete "()")
 #git_status=
 
 #if [[ -z $(git -C local status --porcelain=v1) ]]
 
 
-if [[ "$local_status" = "up" ]]; then
-        output "${white} Config Version: ${green}OK${reset}"
-else
-	output "${white}" Config Version: ${yellow}OUTDATED${reset}
-fi
+#if [[ "$local_status" = "up" ]]; then
+#        output "${white} Config Version: ${green}OK${reset}"
+#else
+#	output "${white}" Config Version: ${yellow}OUTDATED${reset}
+#fi
 
 # ============================ Power ====================================
 

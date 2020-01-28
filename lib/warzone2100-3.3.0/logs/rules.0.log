@@ -1,0 +1,10 @@
+=== PERFORMANCE DATA ===
+    calls | avg (usec) | worst (usec) | worst call at | >=limit | >=limit/2 | function
+        1 |       7631 |         7631 |             2 |       0 |         0 | eventGameInit
+        1 |        217 |          217 |         70902 |       0 |         0 | eventStructureBuilt
+        6 |        155 |          472 |          6002 |       0 |         0 | eventResearched
+        1 |       7654 |         7654 |             2 |       0 |         0 | eventGameLoaded
+       16 |         28 |          240 |         73402 |       0 |         0 | eventAttacked
+        7 |        107 |          739 |         60902 |       0 |         0 | eventDestroyed
+        1 |        257 |          257 |             2 |       0 |         0 | eventStartLevel
+        2 |        245 |          480 |          1002 |       0 |         0 | resetPower
