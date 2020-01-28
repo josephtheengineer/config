@@ -5,7 +5,7 @@
 [core]
 	editor = nvim
 [commit]
-	template = ~/.config/git/template.txt
+	template = ~/local/etc/git/template.txt
 	gpgsign = true
 [help]
 	autocorrect = 30

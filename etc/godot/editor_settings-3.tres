@@ -2,6 +2,7 @@
 
 [resource]
 interface/editor/display_scale = 1
+interface/editor/code_font_size = 13.3333
 interface/editor/dim_amount = 0.6
 interface/editor/dim_transition_time = 0.08
 interface/theme/preset = "6"
