@@ -123,7 +123,7 @@
 				isNormalUser = true;
 				home = "/home/josephtheengineer";
 				description = "admin";
-				extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager" 
+				extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager"
 					"video" "scanner" "lp" "website-dev" "cdrom" ];
 				shell = pkgs.zsh;
 			};
@@ -137,8 +137,11 @@
 		};
 	};
 
+	console = {
+		keyMap = "colemak";
+	};
+
 	i18n = {
-		consoleKeyMap = "colemak";
 		defaultLocale = "en_US.UTF-8";
 	};
 

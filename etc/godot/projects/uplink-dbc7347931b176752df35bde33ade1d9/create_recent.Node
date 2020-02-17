@@ -1,0 +1,11 @@
+CollisionShape
+StaticBody
+MeshInstance
+Node
+Spatial
+ColorRect
+RichTextLabel
+TextEdit
+TextureRect
+Panel
+Viewport

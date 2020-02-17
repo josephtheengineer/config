@@ -88,6 +88,14 @@ function mv-progress
 	mv $@ & progress -mp $!
 }
 
+function yt-dl-best
+{
+	youtube-dl -F ${@: -1};
+	youtube-dl --format "(bestvideo[vcodec=vp9.2]/bestvideo[vcodec=vp9][fps>30]/bestvideo[vcodec=vp9][height>=1080]/bestvideo[fps>30]/bestvideo[height>720])+(bestaudio[acodec=opus]/bestaudio)/best" \
+	--write-info-json --write-thumbnail --continue --ignore-errors --write-sub --sub-lang en --write-auto-sub \
+	--prefer-free-formats --recode-video webm --convert-subs vtt $@
+}
+
 RUN_SCRIPT="$LIB/scripts/run-script.sh"
 
 # scripts
@@ -138,6 +146,7 @@ alias rmv="rsyncmv"
 alias ls-size="ls --human-readable --size -1 -S --classify"
 alias clear-swap="sudo swapoff -a && sudo swapon -a"
 alias find-gateway="route -n | grep 'UG[ \t]' | awk '{print $2}'"
+alias youtube-dl="yt-dl-best"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"

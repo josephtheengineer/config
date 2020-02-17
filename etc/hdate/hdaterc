@@ -1,0 +1,130 @@
+# configuration file for hdate - Hebrew date information program
+# part of package libhdate
+#
+# Should you mangle this file and wish to restore its default content,
+# rename or delete this file and run hdate; hdate will automatically
+# regenerate the default content.
+#
+# Your system administrator can set system-wide defaults for hcal by
+# modifying file <not yet implemented>.
+# You may override all defaults by changing the contents of this file.
+#
+# Version information
+# This may be used by updates to hcal to determine how to parse the file
+# and whether additional information and options should be appended to
+# the end of this file.
+VERSION=2.00
+#
+# Location awareness
+# hdate wants to accurately highlight the current Hebrew day, including
+# during the hours between sunset and secular midnight. If you don't
+# provide it with latitude, longitude, and time zone information, hdate
+# will try to guess the information, based upon your system timezone,
+# and its (limited, and maybe biased) of the dominant Jewish community
+# in that timezone. When hdate is forced to guess, it alerts the user
+# with a message that includes the guessed location.
+# hdate's guesses will also affect its default behaviour for ouput of
+# Shabbat times, parshiot, and choice of Israel/diaspora hoidays.
+#SUNSET_AWARE=TRUE
+# LATITUDE and LONGITUDE may be in decimal format or in the form
+# degrees[:minutes[:seconds]] with the characters :'" as possible
+# delimiters. Use negative values to indicate South and West, or
+# use the abbreviated compass directions N, S, E, W.
+#LATITUDE=
+#LONGITUDE=
+# TIMEZONE may may be in decimal format or in the form degrees[:minutes]
+# with the characters :'" as possible delimiters.
+#TIMEZONE=
+
+# Output in hebrew characters
+# hdate defaults to output all information in your default language, so
+# if your default language is Hebrew, you're all set. Otherwise, you can
+# set FORCE_HEBREW to true to output Hebrew information in Hebrew, while
+# still outputting gregorian information in your default language. To
+# output ALL information in Hebrew, run something like this:
+#    LC_TEMP=LC_ALL; LC_ALL="he_IL.UTF-8"; hdate; LC_ALL=$LC_TEMP
+# If setting FORCE_HEBREW to true results in 'garbage' or non-Hebrew
+# output, you need to install a terminal font that includes the Hebrew
+# character set (hint: unicode).
+#FORCE_HEBREW=FALSE
+
+# The FORCE_HEBREW option outputs data that is 'correct' and 'logical'.
+# Unfortunately, the world can not be depended upon to be either. Most
+# Xwindow applications will display the data fine with FORCE_HEBREW; most
+# xterm implementations will not. (in fact, the only xterm clone I know
+# of that comes close is mlterm). If using FORCE_HEBREW results in
+# Hebrew characters being displayed in reverse, set OUTPUT_BIDI to true.
+# This will reverse the order of the Hebrew characters, so they will
+# display 'visual'ly correct; however, such output will not be suitable
+# for piping or pasting to many other applications. Setting OUTPUT_BIDI
+# automatically forces hebrew.
+#OUTPUT_BIDI=FALSE
+
+# The Hebrew language output of Hebrew information can also be 'styled'
+# in the following ways:
+# option YOM ~> yom shishi, aleph tishrei ...
+# option LESHABBAT ~> yom sheni leshabbat miketz, kof kislev ...
+# option LESEDER ~> yom sheni leseder miketz, kof kislev ...
+#YOM=FALSE
+#LESHABBAT=FALSE
+#LESEDER=FALSE
+
+#SUN_RISE_SET=FALSE
+#TIMES_OF_DAY=FALSE
+#SHORT_FORMAT=FALSE
+#SEFIRAT_HAOMER=FALSE
+#DIASPORA=FALSE
+
+
+# Shabbat related
+# Setting SHABBAT_INFO true will output parshiot and Shabbat times.
+# The command line options for these features are -r (--parasha), and
+# -c. The CANDLE_LIGHTING field can accept a value of 18 - 90 (minutes
+# before sunset). The HAVDALAH field can accept a value of 20 - 90
+# (minutes after sunset).
+#PARASHA_NAMES=FALSE
+#ONLY_IF_PARASHA_IS_READ=FALSE
+#SHABBAT_INFO=FALSE
+
+#CANDLE_LIGHTING=FALSE
+#HAVDALAH=FALSE
+
+# Holiday related
+#HOLIDAYS=FALSE
+#ONLY_IF_HOLIDAY=FALSE
+
+# Tabular output
+# This option has hdate output the information you request in a single
+# comma-delimited line per day, suitable for piping or import to
+# spreadsheet formatting applications, etc. To belabor the obvious,
+# try running -   ./hdate 12 2011 -Rt --table |column -s, -t 
+# The command line option for this feature is, um, --table
+#TABULAR=FALSE
+
+# iCal format
+# hdate can output its information in iCal-compatable format
+# ICAL=FALSE
+# Suppress alerts and warnings
+# hdate alerts the user via STDERR when it guesses the user's location.
+#QUIET_ALERTS=FALSE
+
+# Julian day number
+# The Julian day number is a .... See ... for more details.
+# setting the option JULIAN_DAY will have hdate output that number in
+# the format JDN-nnnnnnn at the beginning of its first line of output.
+#JULIAN_DAY=FALSE
+
+# User-defined menus
+# You may specify here command-line strings to optionally be parsed
+# by hcal at execution time. To do so, use the command line option -m
+# (--menu). hcal will process first the settings of this config file,
+# then the other settings of your command line, and then will prompt
+# you for which menu item you would like to select. hcal will process
+# your menu selection as if it were a new command line, further modifying
+# all the prior settings.
+# Only the first ten "MENU=" entries will be read. Each line will be
+# truncated at one hundred characters
+#MENU= -bd -l -23.55 -L -46.61 -z -3 # parents in Sao Paolo
+#MENU= -b -l 32 -L 34 -z 2           # son in bnei brak
+#MENU= -bd -l 43.71 -L -79.43 -z -5  # me in Toronto
+#MENU= -bd -l 22.26 -L 114.15 -z 8   # supplier in Hong Kong

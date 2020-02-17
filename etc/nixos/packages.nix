@@ -20,11 +20,13 @@ in
 			patchelf
 			fzf # Full screen fuzzy finder
 			calcurse # Full screen calender and to-do list
+			termdown
 
 		# Formatting / Storage
 			groff
 			tectonic
 			pandoc
+			tetex
 			R-packages
 			ntfs3g
 
@@ -50,6 +52,7 @@ in
 			aerc # Full screen mail client
 			linux-pam
 			tor
+			ddgr # Duck Duck Go over the terminal
 
 		# Multimedia
 			ffmpeg

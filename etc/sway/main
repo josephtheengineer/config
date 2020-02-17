@@ -91,11 +91,6 @@ default_border normal 1
 #
 # Basics:
 #
-	mode "insert" {
-		bindsym --release $mod mode "default"
-	}
-	bindsym --release $mod mode "insert"
-
 	# start a terminal
 	bindsym Return exec $term
 
@@ -271,8 +266,13 @@ default_border normal 1
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym minus scratchpad show
 #
-# Resizing containers:
+# Modes:
 #
+mode "insert" {
+	bindsym --release $mod mode "default"
+}
+bindsym --release $mod mode "insert"
+
 mode "resize" {
     # left will shrink the containers width
     # right will grow the containers width
@@ -290,10 +290,15 @@ mode "resize" {
     bindsym Right resize grow width 10px
 
     # return to default mode
-    bindsym Return mode "default"
     bindsym Escape mode "default"
+    bindsym --release $mod mode "default"
 }
 bindsym r mode "resize"
+
+mode "mail" {
+    bindsym Escape mode "default"
+}
+bindsym m mode "mail"
 
 #
 # Status Bar:

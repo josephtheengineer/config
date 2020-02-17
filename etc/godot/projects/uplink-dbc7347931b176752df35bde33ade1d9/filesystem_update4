@@ -1,0 +1,7 @@
+res://scenes/Spatial.tscn
+res://scenes/chunk_debug.tscn
+res://scenes/environment.tres
+res://scenes/world.tscn
+res://scripts/features/eden_world_decoder.gd
+res://scripts/systems/client_system.gd
+res://scripts/systems/server_system.gd
