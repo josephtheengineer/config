@@ -29,6 +29,9 @@
 # Written by ayekat in an burst of nostalgy, on a mildly cold wednesday night in
 # February 2017.
 
+# Enable wayland backend
+XDG_SESSION_TYPE=wayland
+
 set -eu
 
 # Set default values for the variables as defined in the XDG base directory spec
