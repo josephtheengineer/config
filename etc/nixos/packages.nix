@@ -29,6 +29,7 @@ in
 			tetex
 			R-packages
 			ntfs3g
+			usbutils # Mount android phones
 
 		# Fun
 			figlet
@@ -72,6 +73,7 @@ in
 			gnumake
 			clang
 			gdb
+			androidenv.androidPkgs_9_0.platform-tools # For mounting android phones + running apps
 
 		# Encryption
 			pass
