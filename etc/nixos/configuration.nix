@@ -98,8 +98,8 @@
 			enable = true;
 			ports = [ 22 8080 ];
 			permitRootLogin = "no";
-			challengeResponseAuthentication = false;
-			passwordAuthentication = false;
+			#challengeResponseAuthentication = false;
+			#passwordAuthentication = false;
 		};
 	};
 
@@ -174,7 +174,7 @@
 
 	fonts = {
 		fonts = with pkgs; [
-			symbola
+			#symbola         Unfree
 			powerline-fonts
 			envypn-font
 			roboto-mono

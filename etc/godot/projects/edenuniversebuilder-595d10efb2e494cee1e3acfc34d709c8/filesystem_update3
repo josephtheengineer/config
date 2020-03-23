@@ -1,8 +1,0 @@
-res://default_env.tres
-res://scenes/main_menu.tscn
-res://scripts/chunk.gd
-res://scripts/eden_world_decoder.gd
-res://scripts/hud.gd
-res://scripts/main_menu.gd
-res://scripts/player.gd
-res://scripts/world.gd

@@ -28,7 +28,7 @@ function reload_on {
 	current=$1
 	while [ "$1" = "$current" ]
 	do
-		sleep 0.2
+		sleep 0.1
 		current=$(date +'%H:%M:%S')
 	done
 	display

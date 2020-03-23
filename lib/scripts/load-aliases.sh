@@ -80,12 +80,12 @@ function rsyncmv
 
 function cp-progress
 {
-	cp $@ & progress -mp $!
+	cp "$@" & progress -mp $!
 }
 
 function mv-progress
 {
-	mv $@ & progress -mp $!
+	mv "$@" & progress -mp $!
 }
 
 function yt-dl-best
@@ -137,16 +137,17 @@ alias e='nvim'
 alias c='configure'
 alias alsamixer='alsamixer -g'
 alias reload-agent='gpg-connect-agent reloadagent /bye'
-alias icat="kitty +kitten icat"
+alias icat='kitty +kitten icat'
 alias lsblk='lsblk -o name,size,mountpoint,uuid'
-alias rcp="rsync --partial --progress --append --rsh=ssh -r -h"
-alias rmv="rsyncmv"
-#alias cp="cp-progress"
-#alias mv="mv-progress"
-alias ls-size="ls --human-readable --size -1 -S --classify"
-alias clear-swap="sudo swapoff -a && sudo swapon -a"
+alias rcp='rsync --partial --progress --append --rsh=ssh -r -h'
+alias rmv='rsyncmv'
+#alias cp='cp-progress'
+#alias mv='mv-progress'
+alias ls-size='ls --human-readable --size -1 -S --classify'
+alias clear-swap='sudo swapoff -a && sudo swapon -a'
 alias find-gateway="route -n | grep 'UG[ \t]' | awk '{print $2}'"
-alias youtube-dl="yt-dl-best"
+alias youtube-dl='yt-dl-best'
+alias pass="ssh -tq ssh.theengineer.life pass"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"

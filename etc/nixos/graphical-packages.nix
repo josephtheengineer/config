@@ -32,6 +32,7 @@
 
 		# Multimedia
 			gimp
+			kdenlive
 			pavucontrol
 			wf-recorder
 			mpv

@@ -42,9 +42,9 @@ function main
 			;;
 		*)
 			if [ "$directory" = true ]; then
-				cp -r $@ & progress -mp $!
+				cp -r "$@" & progress -mp $!
 			else
-				cp $@ & progress -mp $!
+				cp "$@" & progress -mp $!
 			fi
 			;;
 	esac

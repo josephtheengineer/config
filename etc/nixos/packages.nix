@@ -21,6 +21,10 @@ in
 			fzf # Full screen fuzzy finder
 			calcurse # Full screen calender and to-do list
 			termdown
+			taskwarrior
+			timewarrior
+			tasksh
+			vit
 
 		# Formatting / Storage
 			groff
@@ -30,6 +34,7 @@ in
 			R-packages
 			ntfs3g
 			usbutils # Mount android phones
+			sshfs # Mount dir via ssh
 
 		# Fun
 			figlet
@@ -56,7 +61,7 @@ in
 			ddgr # Duck Duck Go over the terminal
 
 		# Multimedia
-			ffmpeg
+			ffmpeg-full
 			mpd
 			ncmpcpp # Full screen frontend UI for mpd
 			mpc_cli # Full screen
@@ -74,8 +79,5 @@ in
 			clang
 			gdb
 			androidenv.androidPkgs_9_0.platform-tools # For mounting android phones + running apps
-
-		# Encryption
-			pass
 	];
 }

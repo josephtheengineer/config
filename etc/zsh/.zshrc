@@ -17,10 +17,10 @@ if [ "$(tty)" = "/dev/tty1" ]; then
 fi
 
 #export PINENTRY_USER_DATA="USE_CURSES=1"
-export GPG_TTY=$(tty)
-gpg-connect-agent /bye
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpg-connect-agent updatestartuptty /bye # Fix GPG ssh login
+#export GPG_TTY=$(tty)
+#gpg-connect-agent /bye
+#export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+#gpg-connect-agent updatestartuptty /bye # Fix GPG ssh login
 
 export MPD_HOST=/run/mpd/socket
 export EDITOR="nvim"
