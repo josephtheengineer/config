@@ -61,7 +61,7 @@ function scan # date, correspondent, name, tags, format, resolution
 		filename="/var/spool/scans/$1 - $2 - $3 - $4.$5"
 	fi
 
-	sudo scanimage -p --format="$6" --resolution="$6" >$filename
+	sudo scanimage -p --format="$5" --resolution="$6" >$filename
 }
 
 main "$@"

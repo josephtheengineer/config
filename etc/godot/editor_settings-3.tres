@@ -1,67 +1,4 @@
-[gd_resource type="EditorSettings" load_steps=13 format=2]
-
-[sub_resource type="InputEventKey" id=1]
-control = true
-command = true
-scancode = 78
-unicode = 78
-
-[sub_resource type="InputEventKey" id=2]
-scancode = 16777224
-unicode = 16777224
-
-[sub_resource type="InputEventKey" id=3]
-control = true
-command = true
-scancode = 68
-unicode = 68
-
-[sub_resource type="InputEventKey" id=4]
-alt = true
-scancode = 16777231
-unicode = 16777231
-
-[sub_resource type="InputEventKey" id=5]
-alt = true
-scancode = 16777233
-unicode = 16777233
-
-[sub_resource type="InputEventKey" id=6]
-alt = true
-scancode = 16777232
-unicode = 16777232
-
-[sub_resource type="InputEventKey" id=7]
-control = true
-command = true
-scancode = 16777234
-unicode = 16777234
-
-[sub_resource type="InputEventKey" id=8]
-control = true
-command = true
-scancode = 16777232
-unicode = 16777232
-
-[sub_resource type="InputEventKey" id=9]
-scancode = 16777248
-unicode = 16777248
-
-[sub_resource type="InputEventKey" id=10]
-alt = true
-scancode = 70
-unicode = 70
-
-[sub_resource type="InputEventKey" id=11]
-control = true
-command = true
-scancode = 72
-unicode = 72
-
-[sub_resource type="InputEventKey" id=12]
-alt = true
-scancode = 86
-unicode = 86
+[gd_resource type="EditorSettings" format=2]
 
 [resource]
 interface/editor/display_scale = 1
@@ -119,11 +56,11 @@ filesystem/resources/save_compressed_resources = true
 filesystem/resources/auto_reload_modified_images = true
 filesystem/import/automatic_reimport_on_sources_changed = true
 asset_library/use_threads = true
-export/android/adb = "/nix/store/lpz0qcnvky26j2y55hdn7svn1cxskcsw-platform-tools-28.0.1/bin/adb"
-export/android/jarsigner = "/nix/store/7z3yq1xdabgmpak6dqw33h1pjf3263dl-openjdk-8u202bga/lib/openjdk/bin/jarsigner"
-export/android/debug_keystore = "/home/josephtheengineer/.android/debug.keystore"
-export/android/debug_keystore_user = "androiddebugkey"
-export/android/debug_keystore_pass = "android"
+export/android/adb = "/nix/store/5lblj4ip4vh7bk6ri0k5xwx42zfipfg4-platform-tools-28.0.1/bin/adb"
+export/android/jarsigner = "/nix/store/gh5h2idj3zl2k9r5iaspgdlqc5rjzs1y-openjdk-8u242-b08/lib/openjdk/bin/jarsigner"
+export/android/debug_keystore = "/home/josephtheengineer/.android/eden_universe_builder.keystore"
+export/android/debug_keystore_user = "EdenUniverseBuilder"
+export/android/debug_keystore_pass = "THEBESTENGINEER!"
 export/android/force_system_user = false
 export/android/timestamping_authority_url = ""
 export/android/shutdown_adb_on_exit = true
@@ -229,4 +166,3 @@ network/language_server/remote_port = 6008
 network/language_server/enable_smart_resolve = true
 network/language_server/show_native_symbols_in_editor = false
 network/language_server/use_thread = false
-shortcuts = [ "file_dialog/create_folder", SubResource( 1 ), "file_dialog/delete", SubResource( 2 ), "file_dialog/focus_path", SubResource( 3 ), "file_dialog/go_back", SubResource( 4 ), "file_dialog/go_forward", SubResource( 5 ), "file_dialog/go_up", SubResource( 6 ), "file_dialog/move_favorite_down", SubResource( 7 ), "file_dialog/move_favorite_up", SubResource( 8 ), "file_dialog/refresh", SubResource( 9 ), "file_dialog/toggle_favorite", SubResource( 10 ), "file_dialog/toggle_hidden_files", SubResource( 11 ), "file_dialog/toggle_mode", SubResource( 12 ) ]

@@ -37,6 +37,9 @@
 		export ETC=~/local/etc
 		export LIB=~/local/lib
 		export LOG=~/local/var/log
+		export SRV=/srv
+		export DESKTOP=~/desktop
+		export DOWNLOADS=~/downloads
 
 		# XDG compatibility
 		export XDG_CACHE_HOME=$CACHE
@@ -45,6 +48,16 @@
 		export XDG_STATE_HOME=$LOG
 		export XDG_LIB_HOME=$LIB
 		export XDG_LOG_HOME=$LOG
+		
+		# XDG user dirs compatibility
+		XDG_DESKTOP_DIR=$DESKTOP
+		XDG_DOCUMENTS_DIR=$DESKTOP
+		XDG_DOWNLOAD_DIR=$DOWNLOADS
+		XDG_MUSIC_DIR=$DESKTOP
+		XDG_PICTURES_DIR=$DESKTOP
+		XDG_PUBLICSHARE_DIR=$SRV
+		XDG_TEMPLATES_DIR=$LIB/templates
+		XDG_VIDEOS_DIR=$DESKTOP
 
 		# Application compatibility
 		export GIMP2_DIRECTORY=$LIB/gimp
