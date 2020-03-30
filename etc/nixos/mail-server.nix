@@ -3,7 +3,7 @@
 {
 	imports = [
 		(builtins.fetchTarball {
-			url = "https://gitlab.com/josephtheengineer/nixos-mailserver/-/archive/master/nixos-mailserver-master.tar.gz";
+			url = "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/archive/master/nixos-mailserver-master.tar.gz";
  		})
 	];
 
@@ -43,6 +43,8 @@
 		extraVirtualAliases = {
 			# address = forward address;
 			"abuse@theengineer.life" = "joseph@theengineer.life";
+			"dmarc@theengineer.life" = "joseph@theengineer.life"
+			"forensics@theengineer.life" = "joseph@theengineer.life"
 		};
 
 		# Use Let's Encrypt certs. Note that this needs to set up a stripped down
