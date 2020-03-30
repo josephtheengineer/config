@@ -14,6 +14,7 @@ etc/kdenliverc
 etc/qutebrowser/bookmarks
 etc/qutebrowser/qsettings
 etc/qutebrowser/quickmarks
+etc/QtProject.conf
 
 lib/zsh/history
 lib/nvim

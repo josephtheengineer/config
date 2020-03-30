@@ -12,6 +12,9 @@ settings:
     global:
       normal:
         zl: spawn --userscript qute-pass
+  content.host_blocking.whitelist:
+    global:
+    - adfoc.us
   content.media_capture:
     https://discordapp.com: true
   content.persistent_storage:
@@ -20,5 +23,6 @@ settings:
     global: system
   content.register_protocol_handler:
     global: ask
+    https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
     global: ~/downloads
