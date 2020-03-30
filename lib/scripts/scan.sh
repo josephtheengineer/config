@@ -1,5 +1,4 @@
-function main # args
-{
+function main { # args
 	date="$(date +%Y%m%d%H%M%S)Z"
 	correspondent="$USER"
 	name="scan"
@@ -19,14 +18,13 @@ function main # args
 	exit 1
 }
 
-function check # args
-{
+function check { # args
 	local OPTIND opt
 	while getopts ":d:c:n:t:f:r:h" opt; do
-		if [[ $OPTARG == *"-"* ]]; then
+		case $woah in *"-"*)
 			echo "Error: $opt contains '-'"
 			exit 1
-		fi
+		;;esac
 		case $opt in
 			d) date=$OPTARG;;
 			c) correspondent="$OPTARG";;
@@ -34,14 +32,21 @@ function check # args
 			t) tags="$OPTARG";;
 			f) format="$OPTARG";;
 			r) resolution="$OPTARG";;
-			\?h) help;exit 1;;
+			h) help; exit 0;;
+			*) help; exit 1;;
 		esac
 	done
+
+	if test $OPTIND -eq 1; then
+		echo "Error: No options were passed"
+		help; exit 1
+	fi
+
+
 	shift $((OPTIND -1))
 }
 
-function help
-{
+function help {
 	echo " -d (date) default = date +%Y%m%d%H%M%S Z
 	-c (correspondent) default = \$USER
 	-n (name) default = scan
@@ -51,8 +56,7 @@ function help
 	"
 }
 
-function scan # date, correspondent, name, tags, format, resolution
-{
+function scan { # date, correspondent, name, tags, format, resolution
 	filename=""
 
 	if [ -z "$4" ]; then
