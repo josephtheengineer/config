@@ -1,3 +1,17 @@
+" Removes url hiding
+	autocmd VimEnter * set conceallevel=0
+	let g:indentLine_setConceal = 2
+	" default ''.
+	" n for Normal mode
+	" v for Visual mode
+	" i for Insert mode
+	" c for Command line editing, for 'incsearch'
+	let g:indentLine_concealcursor = ""
+	set conceallevel=0
+	let g:vim_markdown_conceal = 0
+	autocmd FileType * setlocal conceallevel=0
+	autocmd VimEnter * setlocal conceallevel=0
+
 let mapleader =" "
 set nocompatible
 filetype plugin on

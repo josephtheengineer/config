@@ -12,17 +12,19 @@
 
 { config, pkgs, ... }:
 #with pkgs;
-#let
+let
+	HOSTNAME = builtins.readFile ./hostname.txt;
+	LOCAL_CONFIG = "/home/josephtheengineer/local/etc/nixos/${HOSTNAME}.nix";
 #	home-manager = builtins.fetchGit {
 #		url = "https://github.com/rycee/home-manager.git";
 #		rev = "dd94a849df69fe62fe2cb23a74c2b9330f1189ed"; # CHANGEME
 #		ref = "release-18.09";
 #	};
-#in
+in
 {
 	imports = [
 			/etc/nixos/hardware-configuration.nix
-			./local-configuration.nix
+			"${LOCAL_CONFIG}"
 #			"${home-manager}/nixos"
 		];
 
@@ -48,7 +50,7 @@
 		export XDG_STATE_HOME=$LOG
 		export XDG_LIB_HOME=$LIB
 		export XDG_LOG_HOME=$LOG
-		
+
 		# XDG user dirs compatibility
 		XDG_DESKTOP_DIR=$DESKTOP
 		XDG_DOCUMENTS_DIR=$DESKTOP
@@ -186,14 +188,18 @@
 	];
 
 	fonts = {
+		enableFontDir = true;
 		fonts = with pkgs; [
-			#symbola         Unfree
 			powerline-fonts
 			envypn-font
 			roboto-mono
+			roboto
 			source-sans-pro
 			source-code-pro
+			noto-fonts
+			noto-fonts-cjk
 			noto-fonts-emoji
+			noto-fonts-extra
 			twitter-color-emoji
 		];
 		enableDefaultFonts = true;

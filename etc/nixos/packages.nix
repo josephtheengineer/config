@@ -79,5 +79,7 @@ in
 			clang
 			gdb
 			androidenv.androidPkgs_9_0.platform-tools # For mounting android phones + running apps
+			redis
+			nodejs
 	];
 }

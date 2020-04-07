@@ -166,3 +166,4 @@ network/language_server/remote_port = 6008
 network/language_server/enable_smart_resolve = true
 network/language_server/show_native_symbols_in_editor = false
 network/language_server/use_thread = false
+projects/::home::josephtheengineer::workspace::rpg-godot = "/home/josephtheengineer/workspace/rpg-godot"

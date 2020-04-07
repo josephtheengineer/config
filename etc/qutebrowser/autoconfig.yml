@@ -16,6 +16,8 @@ settings:
     global:
     - adfoc.us
   content.media_capture:
+    global: ask
+    https://au.bbcollab.com: true
     https://discordapp.com: true
   content.persistent_storage:
     global: ask

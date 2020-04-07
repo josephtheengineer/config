@@ -41,6 +41,11 @@ set-wallpaper()
         sway output eDP-1 bg $1 fill
 }
 
+record()
+{
+	wf-recorder -f /mnt/data/acts-of-the-engineer/$(date +'%Y')/$(date +'%Y-%m-%d_%H:%M:%S').mkv --audio=2
+}
+
 help()
 {
         echo '=== MAINTENANCE ==='
@@ -146,8 +151,10 @@ alias rmv='rsyncmv'
 alias ls-size='ls --human-readable --size -1 -S --classify'
 alias clear-swap='sudo swapoff -a && sudo swapon -a'
 alias find-gateway="route -n | grep 'UG[ \t]' | awk '{print $2}'"
+alias search-folder="grep -rnw . -e "
 alias youtube-dl='yt-dl-best'
 alias pass="ssh -tq ssh.theengineer.life pass"
+alias create-mixer="pactl load-module module-null-sink sink_name=inputs; pactl load-module module-loopback sink=inputs; pactl load-module module-loopback sink=inputs"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"

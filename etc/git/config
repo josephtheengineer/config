@@ -9,3 +9,5 @@
 	gpgsign = true
 [help]
 	autocorrect = 30
+[pull]
+	rebase = true

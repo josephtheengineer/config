@@ -15,6 +15,8 @@ etc/qutebrowser/bookmarks
 etc/qutebrowser/qsettings
 etc/qutebrowser/quickmarks
 etc/QtProject.conf
+etc/nixos/hostname.txt
+etc/tox
 
 lib/zsh/history
 lib/nvim
@@ -33,6 +35,8 @@ lib/Trash
 lib/godot
 lib/RecentDocuments
 lib/icons
+lib/warzone*
+lib/Tox
 
 lib/gnupg/private-keys-v1.d
 lib/gnupg/openpgp-revocs.d
