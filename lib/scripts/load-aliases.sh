@@ -153,8 +153,8 @@ alias clear-swap='sudo swapoff -a && sudo swapon -a'
 alias find-gateway="route -n | grep 'UG[ \t]' | awk '{print $2}'"
 alias search-folder="grep -rnw . -e "
 alias youtube-dl='yt-dl-best'
-alias pass="ssh -tq ssh.theengineer.life pass"
 alias create-mixer="pactl load-module module-null-sink sink_name=inputs; pactl load-module module-loopback sink=inputs; pactl load-module module-loopback sink=inputs"
+#alias pass="ssh -tq ssh.theengineer.life pass"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"

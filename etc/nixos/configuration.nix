@@ -113,8 +113,8 @@ in
 			enable = true;
 			ports = [ 22 8080 ];
 			permitRootLogin = "no";
-			#challengeResponseAuthentication = false;
-			#passwordAuthentication = false;
+			challengeResponseAuthentication = false;
+			passwordAuthentication = false;
 		};
 	};
 

@@ -43,8 +43,8 @@
 		extraVirtualAliases = {
 			# address = forward address;
 			"abuse@theengineer.life" = "joseph@theengineer.life";
-			"dmarc@theengineer.life" = "joseph@theengineer.life"
-			"forensics@theengineer.life" = "joseph@theengineer.life"
+			"dmarc@theengineer.life" = "joseph@theengineer.life";
+			"forensics@theengineer.life" = "joseph@theengineer.life";
 		};
 
 		# Use Let's Encrypt certs. Note that this needs to set up a stripped down

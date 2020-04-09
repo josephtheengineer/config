@@ -1,4 +1,5 @@
-./$LIB/scripts/pinentry-update.sh
+export GPG_TTY=$(tty)
+$LIB/scripts/pinentry-update.sh
 gpgconf –kill gpg-agent
 pkill pinentry
 pkill gpg-agent
