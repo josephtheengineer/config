@@ -23,8 +23,5 @@ settings:
     global: ask
   content.proxy:
     global: system
-  content.register_protocol_handler:
-    global: ask
-    https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
     global: ~/downloads

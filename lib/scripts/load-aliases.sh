@@ -155,6 +155,7 @@ alias search-folder="grep -rnw . -e "
 alias youtube-dl='yt-dl-best'
 alias create-mixer="pactl load-module module-null-sink sink_name=inputs; pactl load-module module-loopback sink=inputs; pactl load-module module-loopback sink=inputs"
 #alias pass="ssh -tq ssh.theengineer.life pass"
+alias old-term="export TERM=vt100"
 
 # Linux commands
 #alias cat="$PLAN9/bin/cat"
