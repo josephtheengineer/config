@@ -1,0 +1,6 @@
+game:
+  args: -bundle-dir bundle
+  exe: /home/josephtheengineer/downloads/cobalt/IGG-Cobaltv131/cobalt.exe
+  working_dir: ''
+system: {}
+wine: {}

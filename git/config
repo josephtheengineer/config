@@ -1,0 +1,13 @@
+[user]
+	email = joseph@theengineer.life
+	name = josephtheengineer
+	signingkey = AD8F533C2A7BFE826A30C4D74A5C569F26265D31
+[core]
+	editor = nvim
+[commit]
+	template = ~/etc/git/template.txt
+	gpgsign = true
+[help]
+	autocorrect = 30
+[pull]
+	rebase = true

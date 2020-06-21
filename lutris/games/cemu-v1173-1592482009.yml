@@ -1,0 +1,18 @@
+game:
+  arch: win64
+  exe: drive_c/Program Files (x86)/cemu_1.17.3/Cemu.exe
+  prefix: /home/josephtheengineer/games/cemu
+system:
+  disable_compositor: true
+  env:
+    R600_DEBUG: nohyperz
+    __GL_THREADED_OPTIMIZATIONS: '1'
+    mesa_glthread: 'true'
+    vblank_mode: '0'
+wine:
+  esync: true
+  overrides:
+    dbghelp: native,builtin
+    mscoree: disabled
+    mshtml: disabled
+  version: lutris-5.6-2-x86_64

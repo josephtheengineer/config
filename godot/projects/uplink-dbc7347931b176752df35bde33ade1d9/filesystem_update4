@@ -1,0 +1,5 @@
+res://scenes/environment.tres
+res://scenes/world.tscn
+res://scripts/features/chunk_thread.gd
+res://scripts/systems/chunk_system.gd
+res://scripts/systems/client_system.gd
