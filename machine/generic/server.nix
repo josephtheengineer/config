@@ -2,6 +2,7 @@
 {
 	imports = [
 		/etc/nixos/boot/grub.nix
+		/etc/nixos/package-lists/server.nix
 		/etc/nixos/services/mail.nix
 		/etc/nixos/services/git.nix
 		/etc/nixos/services/irc.nix
@@ -27,6 +28,7 @@
 		{
 			imports = [
 				/etc/nixos/home/home.nix
+				/etc/nixos/home/server/server.nix
 			];
 		}
 	;

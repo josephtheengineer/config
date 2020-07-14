@@ -12,7 +12,7 @@
 	services.nginx = {
  		enable = true;
  		statusPage = true;
-		sslProtocols = "TLSv1.3"
+		sslProtocols = "TLSv1.3";
 		upstreams.journal.servers."127.0.0.1:3000" = {};
  		virtualHosts."www.theengineer.life" = {
 			#addSSL = true;

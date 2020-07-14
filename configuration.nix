@@ -175,12 +175,9 @@ in
 		tree
 		plan9port
 		progress
-		gnupg
-		pinentry
 		cryptsetup
 		lvm2
 		parted
-		networkmanager
 		kitty
 		lolcat
 		toilet
