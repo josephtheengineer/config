@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-	docker-containers.pihole = {
+	virtualisation.oci-containers.containers.pihole = {
 		image = "pihole/pihole:latest";
 		ports = [
 			"5353:53/tcp"
@@ -17,7 +17,7 @@
 		environment = {
 			#ServerIP = serverIP;
 		};
-		extraDockerOptions = [
+		cmd = [
 			"--cap-add=NET_ADMIN"
 			"--dns=127.0.0.1"
  			"--dns=1.1.1.1"
