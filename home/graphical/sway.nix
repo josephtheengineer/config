@@ -134,29 +134,29 @@ in
 				"Shift+Down" = "move down";
 
 			# switch to workspace
-				"1" = "exec ~/var/lib/scripts/workspace-manager.sh switch 1";
-				"2" = "exec ~/var/lib/scripts/workspace-manager.sh switch 2";
-				"3" = "exec ~/var/lib/scripts/workspace-manager.sh switch 3";
-				"4" = "exec ~/var/lib/scripts/workspace-manager.sh switch 4";
-				"5" = "exec ~/var/lib/scripts/workspace-manager.sh switch 5";
-				"6" = "exec ~/var/lib/scripts/workspace-manager.sh switch 6";
-				"7" = "exec ~/var/lib/scripts/workspace-manager.sh switch 7";
-				"8" = "exec ~/var/lib/scripts/workspace-manager.sh switch 8";
-				"9" = "exec ~/var/lib/scripts/workspace-manager.sh switch 9";
-				"0" = "exec ~/var/lib/scripts/workspace-manager.sh switch 10";
+				"1" = "exec /etc/zsh/workspace-manager.sh switch 1";
+				"2" = "exec /etc/zsh/workspace-manager.sh switch 2";
+				"3" = "exec /etc/zsh/workspace-manager.sh switch 3";
+				"4" = "exec /etc/zsh/workspace-manager.sh switch 4";
+				"5" = "exec /etc/zsh/workspace-manager.sh switch 5";
+				"6" = "exec /etc/zsh/workspace-manager.sh switch 6";
+				"7" = "exec /etc/zsh/workspace-manager.sh switch 7";
+				"8" = "exec /etc/zsh/workspace-manager.sh switch 8";
+				"9" = "exec /etc/zsh/workspace-manager.sh switch 9";
+				"0" = "exec /etc/zsh/workspace-manager.sh switch 10";
 
-				"F1" = "exec ~/var/lib/scripts/workspace-manager.sh switch 1:F1";
-				"F2" = "exec ~/var/lib/scripts/workspace-manager.sh switch 2:F2";
-				"F3" = "exec ~/var/lib/scripts/workspace-manager.sh switch 3:F3";
-				"F4" = "exec ~/var/lib/scripts/workspace-manager.sh switch 4:F4";
-				"F5" = "exec ~/var/lib/scripts/workspace-manager.sh switch 5:F5";
-				"F6" = "exec ~/var/lib/scripts/workspace-manager.sh switch 6:F6";
-				"F7" = "exec ~/var/lib/scripts/workspace-manager.sh switch 7:F7";
-				"F8" = "exec ~/var/lib/scripts/workspace-manager.sh switch 8:F8";
-				"F9" = "exec ~/var/lib/scripts/workspace-manager.sh switch 9:F9";
-				"F10" = "exec ~/var/lib/scripts/workspace-manager.sh switch 10:F10";
-				"F11" = "exec ~/var/lib/scripts/workspace-manager.sh switch 11:F11";
-				"F12" = "exec ~/var/lib/scripts/workspace-manager.sh switch 12:F12";
+				"F1" = "exec /etc/zsh/workspace-manager.sh switch 1:F1";
+				"F2" = "exec /etc/zsh/workspace-manager.sh switch 2:F2";
+				"F3" = "exec /etc/zsh/workspace-manager.sh switch 3:F3";
+				"F4" = "exec /etc/zsh/workspace-manager.sh switch 4:F4";
+				"F5" = "exec /etc/zsh/workspace-manager.sh switch 5:F5";
+				"F6" = "exec /etc/zsh/workspace-manager.sh switch 6:F6";
+				"F7" = "exec /etc/zsh/workspace-manager.sh switch 7:F7";
+				"F8" = "exec /etc/zsh/workspace-manager.sh switch 8:F8";
+				"F9" = "exec /etc/zsh/workspace-manager.sh switch 9:F9";
+				"F10" = "exec /etc/zsh/workspace-manager.sh switch 10:F10";
+				"F11" = "exec /etc/zsh/workspace-manager.sh switch 11:F11";
+				"F12" = "exec /etc/zsh/workspace-manager.sh switch 12:F12";
 
 			# layout
 				"b" = "splith";
