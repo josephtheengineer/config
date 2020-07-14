@@ -26,7 +26,7 @@ in
 {
 	imports = [
 			/etc/nixos/hardware-configuration.nix
-			/etc/nixos/blox/default.nix
+			/etc/nixos/home/blox/default.nix
 			"${LOCAL_CONFIG}"
 		];
 
