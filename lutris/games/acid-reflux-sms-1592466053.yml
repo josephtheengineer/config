@@ -1,6 +1,0 @@
-game:
-  core: genesis_plus_gx
-  main_file: /home/josephtheengineer/games/acid-reflux/acidreflux_1.sms
-libretro: {}
-system:
-  game_path: /home/josephtheengineer/games

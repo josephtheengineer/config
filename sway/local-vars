@@ -1,6 +1,0 @@
-set $display1 HDMI-A-1
-output HDMI-A-1 pos 0,0
-
-set $display2 HDMI-A-2
-output HDMI-A-2 pos 1920,350
-

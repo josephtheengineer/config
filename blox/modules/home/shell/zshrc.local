@@ -1,0 +1,55 @@
+export SAVEHIST=100000
+export HISTSIZE=100000
+
+alias sshn="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias scpn="scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+alias gg="git grep -ni"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
+alias glg="git log --stat"
+alias grb="git rebase"
+alias gst="git status"
+alias gb="git branch"
+
+go-up () {
+  cd ..
+  zle reset-prompt
+}; zle -N go-up
+
+bindkey '^[u' go-up
+zstyle -d ':completion:*:sudo:*' command-path
+bindkey '^R' history-incremental-search-backward
+
+() {
+    local NEWLINE=$'\n'
+    local FORMAT="%%S%172F%B%F{green}%b%f%%b%%s"
+    zstyle ':vcs_info:*' actionformats "${FORMAT}%F{yellow}|%F{red}%a%f ${NEWLINE}%m${NEWLINE} " "zsh: %r"
+    zstyle ':vcs_info:*' formats       "${FORMAT} "  "zsh: %r"
+    zstyle ':vcs_info:*' patch-format  "tip: %p (%n/%a)"
+}
+
+function virtual_env_prompt () {
+  REPLY=${VIRTUAL_ENV+%F{cyan}🐍 ${VIRTUAL_ENV:t}%f }
+}
+grml_theme_add_token virtual-env -f virtual_env_prompt
+
+function nix_shell () {
+  REPLY=${IN_NIX_SHELL+%B%F{green}${name/shell/ν}%f%b }
+}
+grml_theme_add_token nix-shell -f nix_shell
+
+grml_prompt_token_default[shell-level]="%(4L.+.)"
+
+grml_theme_add_token symbol '%B%(!.%F{red}❯.%F{cyan}❯)%f%b '
+zstyle ':prompt:grml:left:setup' items shell-level rc vcs nix-shell symbol
+zstyle ':prompt:grml:right:setup' items change-root virtual-env path
+
+CONFIGS="$HOME/.config/zsh/conf.d"
+if [ -d "$CONFIGS" ]; then
+  CONFIGFILES=$(noglob find $CONFIGS -name *.rc)
+  if [ -n "$CONFIGFILES" ]; then
+    for CONFIGFILE in ${(f)CONFIGFILES}; do
+      source $CONFIGFILE
+    done
+  fi
+fi

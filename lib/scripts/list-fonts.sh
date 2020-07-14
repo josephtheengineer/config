@@ -1,9 +1,0 @@
-toilet -d ~/.config/scripts/figlet-fonts -f "swampland.flf" swampland
-toilet -d ~/.config/scripts/figlet-fonts -f Bloody.flf Bloody
-toilet -d ~/.config/scripts/figlet-fonts -f Big.flf Big
-toilet -d ~/.config/scripts/figlet-fonts -f "Isometric1.flf" Isometric1
-toilet -d ~/.config/scripts/figlet-fonts -f "Poison.flf" Poison
-toilet -d ~/.config/scripts/figlet-fonts -f "Sub-Zero.flf" Sub-Zero
-toilet -d ~/.config/scripts/figlet-fonts -f "future.flf" future
-toilet -d ~/.config/scripts/figlet-fonts -f 3d.flf 3d
-toilet -d ~/.config/scripts/figlet-fonts -f "rusto.flf" rusto
