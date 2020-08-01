@@ -3,14 +3,14 @@
 	programs.git = {
 		enable = true;
 		package = pkgs.gitAndTools.gitFull;
-			delta = {
-				enable = true;
-				options = [
-					"--plus-color '#008000'"
-					"--minus-color '#800000'"
-					#"--dark"
-				];
-			};
+		#	delta = {
+		#		enable = true;
+		#		options = [
+		#			"--plus-color '#008000'"
+		#			"--minus-color '#800000'"
+		#			#"--dark"
+		#		];
+		#	};
 		lfs.enable = true;
 		signing = {
 			key = "AD8F533C2A7BFE826A30C4D74A5C569F26265D31";

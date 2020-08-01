@@ -8,7 +8,7 @@ in
 {
 	wayland.windowManager.sway = {
 		enable = true;
-		xwayland = false;
+		#xwayland = false;
 		config = {
 			assigns = {
 				"2" = [{ class = "Godot"; }];
@@ -250,7 +250,7 @@ in
 
 			output = {
 				"*" = {
-					bg = "~/.background-image fill";
+					bg = "~/var/lib/sway/background-image fill";
 				};
 				DP-1 = {
 					pos = "0,0";

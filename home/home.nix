@@ -6,5 +6,6 @@
 		./taskwarrior.nix
 		./zsh.nix
 		./kitty.nix
+		#./aerc.nix
 	];
 }

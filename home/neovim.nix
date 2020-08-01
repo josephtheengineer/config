@@ -6,7 +6,7 @@
 		withPython3 = false;
 		withRuby = false;
 		plugins = with pkgs.vimPlugins; [
-			surround
+			#surround
 			nerdtree
 			goyo
 			vimwiki

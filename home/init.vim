@@ -136,3 +136,9 @@ syntax on
 		let &undodir = $HOME.'/var/cache/nvim/undo'
 	endif
 
+" use system clipboard by default
+	set clipboard+=unnamedplus
+
+" proper settings for syntastic
+let g:syntastic_c_compiler = 'clang'
+let g:syntastic_c_compiler_options = ' -Weverything -std=c17 -O2 -Werror=vla -I../inc'

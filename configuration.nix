@@ -93,6 +93,10 @@ in
 			permitRootLogin = "no";
 			challengeResponseAuthentication = false;
 			passwordAuthentication = false;
+			kexAlgorithms = [ "curve25519-sha256@libssh.org" ];
+		};
+		cron = {
+			enable = true;
 		};
 	};
 
@@ -110,16 +114,28 @@ in
 	};
 
 	blox.users = {
-		#groups.website-dev = {};
 		users = {
+			root = {
+				#home = "/home/root";
+				#description = "";
+				shell = pkgs.zsh;
+				openssh.authorizedKeys.keyFiles = [ /home/josephtheengineer/var/lib/ssh/gpg_key.pub ];
+				home-config = {
+					xdg.enable = true;
+					xdg.cacheHome = "/home/root/var/cache";
+					xdg.configHome = "/home/root/etc";
+					xdg.dataHome = "/home/root/var/lib";
+				};
+			};
 			josephtheengineer = {
 				isNormalUser = true;
 				home = "/home/josephtheengineer";
-				description = "admin";
+				#description = "admin";
 				extraGroups = [ "wheel" "libvirtd" "sway" "networkmanager"
-					"video" "audio" "scanner" "lp" "website-dev" "cdrom" ];
+					"video" "audio" "sound" "scanner" "lp" "website-dev" "cdrom" ];
 				shell = pkgs.zsh;
 				hashedPassword = "$6$1Zm3DuoP$ucsjGYsRrb.Bpm6eSLXAf9OQ.nKkbLfMR/rMJL.xzKnsFPSSFYByz1JtRbKeizfstszZUMiUUK2VRAssVBN9D1";
+				openssh.authorizedKeys.keyFiles = [ /home/josephtheengineer/var/lib/ssh/gpg_key.pub ];
 				home-config = {
 					programs.git = {
 						enable = true;
@@ -132,23 +148,6 @@ in
 					xdg.dataHome = "/home/josephtheengineer/var/lib";
 				};
 			};
-			#eco = {
-			#	isNormalUser = true;
-			#	home = "/home/eco";
-			#	description = "awesome";
-			#	extraGroups = [];
-			#	shell = pkgs.zsh;
-			#
-			#	home-config.programs.git = {
-			#		enable = true;
-			#		userName = "josephtheengineer";
-			#		userEmail = "joseph@theengineer.life";
-			#		xdg.enable = true;
-			#		xdg.cacheHome = "/home/josephtheengineer/var/cache";
-			#		xdg.configHome = "/home/josephtheengineer/etc";
-			#		xdg.dataHome = "/home/josephtheengineer/var/lib";
-			#	};
-			#};
 		};
 	};
 
@@ -182,6 +181,7 @@ in
 		lolcat
 		toilet
 		nmap
+		btrfs-progs
 	];
 
 	fonts = {

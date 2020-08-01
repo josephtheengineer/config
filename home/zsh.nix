@@ -11,7 +11,6 @@
 			extended = true;
 			path = "var/lib/zsh/history";
 			save = 100000;
-			share = false;
 		};
 		oh-my-zsh = {
 			enable = true;
@@ -35,7 +34,7 @@
 
 			source /etc/zsh/session-variables.sh
 			source /etc/zsh/load-aliases.sh
-
+			#/etc/zsh/setup-home.sh
 
 			system-info --startup
 		'';
@@ -61,7 +60,7 @@
 			alsamixer = "alsamixer -g";
 			reload-agent = "gpg-connect-agent reloadagent /bye";
 			icat = "kitty +kitten icat";
-			lsblk = "lsblk -o name,size,mountpoint,uuid";
+			lsblk = "lsblk -o state,name,size,fsavail,mountpoint,label,fstype,parttypename,pttype,hotplug,rota,uuid";
 			rcp = "rsync --partial --progress --append --rsh=ssh -r -h";
 			rmv = "rsyncmv";
 			#cp = "cp-progress";
@@ -74,7 +73,7 @@
 			create-mixer = "pactl load-module module-null-sink sink_name=inputs; pactl load-module module-loopback sink=inputs; pactl load-module module-loopback sink=inputs";
 			#pass = "ssh -tq ssh.theengineer.life pass";
 			old-term = "export TERM=vt100";
-			create-playlist = "find -regex '.*\.\(webm\)' > index";
+			create-playlist = ''find -regex '.*\.\(webm\)' > index'';
 
 
 		# Linux commands
